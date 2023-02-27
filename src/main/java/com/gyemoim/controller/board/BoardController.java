@@ -1,10 +1,9 @@
 package com.gyemoim.controller.board;
 
-import com.gyemoim.domain.BoardVO;
-import com.gyemoim.domain.PageVO;
-import com.gyemoim.domain.ReplyVO;
-import com.gyemoim.service.BoardService;
-import com.gyemoim.service.ReplyService;
+import com.gyemoim.domain.board.PageVO;
+import com.gyemoim.domain.board.ReplyVO;
+import com.gyemoim.service.board.BoardService;
+import com.gyemoim.service.board.ReplyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +22,7 @@ public class BoardController {
   private ReplyService replyService;
 
   @RequestMapping(value = "/notice", method = RequestMethod.GET)
-  public String notice(Model model, PageVO vo, @RequestParam(value = "nowPage", required = false) String nowPage, @RequestParam(value = "cntPerPager", required = false) String cntPerPage) throws Exception {
+  public String notice(Model model, @RequestParam(value = "nowPage", required = false) String nowPage, @RequestParam(value = "cntPerPager", required = false) String cntPerPage) throws Exception {
     int total = boardService.countBoard();
 
     if(nowPage == null && cntPerPage == null) {
@@ -35,7 +34,7 @@ public class BoardController {
       cntPerPage = "10";
     }
 
-    vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+    PageVO vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 
     model.addAttribute("paging", vo);
     model.addAttribute("list", boardService.selectBoard(vo));

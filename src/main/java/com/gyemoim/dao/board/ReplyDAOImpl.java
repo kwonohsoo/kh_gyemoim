@@ -1,6 +1,6 @@
-package com.gyemoim.dao;
+package com.gyemoim.dao.board;
 
-import com.gyemoim.domain.ReplyVO;
+import com.gyemoim.domain.board.ReplyVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 

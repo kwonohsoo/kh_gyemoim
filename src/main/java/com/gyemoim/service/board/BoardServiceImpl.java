@@ -1,9 +1,8 @@
-package com.gyemoim.service;
+package com.gyemoim.service.board;
 
-import com.gyemoim.dao.BoardDAO;
-import com.gyemoim.domain.BoardVO;
-import com.gyemoim.domain.PageVO;
-import com.gyemoim.domain.ReplyVO;
+import com.gyemoim.dao.board.BoardDAO;
+import com.gyemoim.domain.board.BoardVO;
+import com.gyemoim.domain.board.PageVO;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

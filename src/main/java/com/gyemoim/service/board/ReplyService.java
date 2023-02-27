@@ -1,6 +1,6 @@
-package com.gyemoim.service;
+package com.gyemoim.service.board;
 
-import com.gyemoim.domain.ReplyVO;
+import com.gyemoim.domain.board.ReplyVO;
 
 import java.util.List;
 
