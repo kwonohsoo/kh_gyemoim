@@ -1,0 +1,33 @@
+package com.gyemoim.dao;
+
+import com.gyemoim.domain.BoardVO;
+import com.gyemoim.domain.PageVO;
+import com.gyemoim.domain.ReplyVO;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import javax.inject.Inject;
+import java.util.List;
+
+@Repository
+public class BoardDAOImpl implements BoardDAO{
+
+  @Inject
+  private SqlSession sqlSession;
+
+  @Override
+  public int countBoard() {
+    return sqlSession.selectOne("BoardMapper.countBoard");
+  }
+
+  @Override
+  public List<BoardVO> selectBoard(PageVO vo) {
+    return sqlSession.selectList("BoardMapper.selectBoard", vo);
+  }
+
+  @Override
+  public BoardVO readDetail(int bid) {
+    return sqlSession.selectOne("BoardMapper.readDetail", bid);
+  }
+
+}
