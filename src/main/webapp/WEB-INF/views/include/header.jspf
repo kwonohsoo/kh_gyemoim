@@ -9,32 +9,39 @@
   <meta name="author" content="" />
   <title>Modern Business - Start Bootstrap Template</title>
   <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="resources/dist/assets/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../../resources/dist/assets/favicon.ico" />
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="resources/dist/css/styles.css" rel="stylesheet" />
+  <link href="../../resources/dist/css/styles.css" rel="stylesheet" />
 </head>
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-main">
     <div class="container px-5">
-      <a class="navbar-brand" href="/"><img src="resources/dist/img/logo01.png"></a>
+      <a class="navbar-brand" href="<%=request.getContextPath()%>/"><img src="resources/dist/img/logo01.png"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="/mypage">마이페이지</a></li>
-          <li class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
-          <li class="nav-item"><a class="nav-link" href="/register">회원가입</a></li>
-          <li class="nav-item"><a class="nav-link" href="/notice">공지사항</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">고객센터</a></li>
+          <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/mypage">마이페이지</a></li>
+          <c:choose>
+            <c:when test="${login!=null}">
+              <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/member/logout">로그아웃</a></li>
+            </c:when>
+            <c:when test="${login==null}">
+              <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/member/login">로그인</a></li>
+            </c:when>
+          </c:choose>
+          <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/register">회원가입</a></li>
+          <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/notice">공지사항</a></li>
+          <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/contact">고객센터</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-              <li><a class="dropdown-item" href="/faq">FAQ</a></li>
-              <li><a class="dropdown-item" href="/review">리뷰</a></li>
-              <li><a class="dropdown-item" href="/comunity">커뮤니티</a></li>
+              <li><a class="dropdown-item" href="<%=request.getContextPath()%>/faq">FAQ</a></li>
+              <li><a class="dropdown-item" href="<%=request.getContextPath()%>/review">리뷰</a></li>
+              <li><a class="dropdown-item" href="<%=request.getContextPath()%>/comunity">커뮤니티</a></li>
             </ul>
           </li>
           <!--
@@ -50,4 +57,3 @@
       </div>
     </div>
   </nav>
-

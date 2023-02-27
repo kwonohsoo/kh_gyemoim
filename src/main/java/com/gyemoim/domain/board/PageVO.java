@@ -1,4 +1,4 @@
-package com.gyemoim.domain;
+package com.gyemoim.domain.board;
 
 public class PageVO {
 

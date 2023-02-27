@@ -1,8 +1,7 @@
-package com.gyemoim.dao;
+package com.gyemoim.dao.board;
 
-import com.gyemoim.domain.BoardVO;
-import com.gyemoim.domain.PageVO;
-import com.gyemoim.domain.ReplyVO;
+import com.gyemoim.domain.board.BoardVO;
+import com.gyemoim.domain.board.PageVO;
 
 import java.util.List;
 
