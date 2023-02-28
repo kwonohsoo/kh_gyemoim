@@ -3,6 +3,7 @@ package com.gyemoim.service.board;
 import com.gyemoim.dao.board.BoardDAO;
 import com.gyemoim.domain.board.BoardVO;
 import com.gyemoim.domain.board.PageVO;
+import com.gyemoim.dto.board.BoardListDTO;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -27,6 +28,11 @@ public class BoardServiceImpl implements BoardService{
   @Override
   public BoardVO readDetail(int bid) {
     return boardDAO.readDetail(bid);
+  }
+
+  @Override
+  public List<BoardVO> searchList(BoardListDTO dto) throws Exception {
+    return boardDAO.searchList(dto);
   }
 
 }

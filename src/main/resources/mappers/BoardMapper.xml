@@ -25,5 +25,13 @@
     WHERE BID = #{bid}
   </select>
 
+  <select id="searchList" parameterType="com.gyemoim.dto.board.BoardListDTO" resultType="com.gyemoim.domain.board.BoardVO">
+    SELECT *
+    FROM BOARD
+    WHERE bid > 0
+            AND title LIKE '%' || #{keyword} || '%'
+            OR content LIKE '%' || #{keyword} || '%'
+       OR name = #{keyword}
+  </select>
 
 </mapper>
