@@ -5,12 +5,9 @@
 <%@ page session="false" %>
 <%@ page isELIgnored="false" %>
 
-
 <%@ include file="../include/header.jspf" %>
 
-
 <link href="resources/dist/css/board/list.css" rel="stylesheet"/>
-
 
 <section class="py-5">
   <div class="container px-5">
@@ -55,6 +52,4 @@
   </div>
 </section>
 
-
 <%@ include file="../include/footer.jspf" %>
-

@@ -14,7 +14,7 @@ public class ReplyController {
   @Inject
   private ReplyService replyService;
 
-  @RequestMapping(value = "replyWrite")
+  @RequestMapping(value = "/replyWrite")
   public void reply(Model model, @RequestParam("bid") int bid) throws Exception {
 
   }

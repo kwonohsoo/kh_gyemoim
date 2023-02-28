@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Controller
+@RequestMapping("/board/")
 public class BoardController {
 
   @Inject
@@ -21,7 +22,7 @@ public class BoardController {
   @Inject
   private ReplyService replyService;
 
-  @RequestMapping(value = "/notice", method = RequestMethod.GET)
+  @RequestMapping(value = "/list", method = RequestMethod.GET)
   public String notice(Model model, @RequestParam(value = "nowPage", required = false) String nowPage, @RequestParam(value = "cntPerPager", required = false) String cntPerPage) throws Exception {
     int total = boardService.countBoard();
 
@@ -49,5 +50,7 @@ public class BoardController {
     model.addAttribute("reply", reply);
     return "board/read";
   }
+
+
 
 }

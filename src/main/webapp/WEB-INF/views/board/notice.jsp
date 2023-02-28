@@ -8,7 +8,7 @@
 <%@ include file="../include/header.jspf" %>
 
 
-<link href="resources/dist/css/board/list.css" rel="stylesheet"/>
+<link href="/resources/dist/css/board/list.css" rel="stylesheet"/>
 
 
 <section class="py-5">
@@ -50,7 +50,7 @@
         </div>
         <ul class="page-list">
           <c:if test="${paging.startPage != 1}">
-            <a href="/notice?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
+            <a href="/board/list?nowPage=${paging.startPage - 1}&cntPerPage=${paging.cntPerPage}">&lt;</a>
           </c:if>
           <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
             <c:choose>
@@ -58,12 +58,12 @@
                 <li>${p}</li>
               </c:when>
               <c:when test="${p != paging.nowPage}">
-                <li><a href="/notice?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p}</a></li>
+                <li><a href="/board/list?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p}</a></li>
               </c:when>
             </c:choose>
           </c:forEach>
           <c:if test="${paging.endPage != paging.lastPage}">
-            <a href="/notice?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+            <a href="/board/list?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
           </c:if>
         </ul>
       </div>
@@ -74,7 +74,7 @@
 <script>
   let selChange = () => {
     let sel = document.getElementById('cntPerPage').valueOf();
-    location.href = "/notice?nowPage=${paging.nowPage}&cntPerPage=" + sel;
+    location.href = "/board/list?nowPage=${paging.nowPage}&cntPerPage=" + sel;
   }
 </script>
 
