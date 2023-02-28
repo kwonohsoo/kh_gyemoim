@@ -1,7 +1,7 @@
 package com.gyemoim.service.member;
 
 import com.gyemoim.domain.member.MemberVO;
-import com.gyemoim.dto.LoginDTO;
+import com.gyemoim.dto.member.LoginDTO;
 
 import java.util.Map;
 

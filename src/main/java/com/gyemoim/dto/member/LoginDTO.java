@@ -1,4 +1,4 @@
-package com.gyemoim.dto;
+package com.gyemoim.dto.member;
 
 public class LoginDTO {
 

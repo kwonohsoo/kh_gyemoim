@@ -2,7 +2,7 @@ package com.gyemoim.service.member;
 
 import com.gyemoim.dao.member.MemberDAO;
 import com.gyemoim.domain.member.MemberVO;
-import com.gyemoim.dto.LoginDTO;
+import com.gyemoim.dto.member.LoginDTO;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
