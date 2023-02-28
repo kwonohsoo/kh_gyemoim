@@ -37,7 +37,7 @@
     </interceptor>
     <interceptor>
       <mapping path="/notice"/>
-      <!--            <mapping path="/"/>-->
+      <mapping path="/member/mypage"/>
       <!--            <mapping path="/"/>-->
       <beans:ref bean="authInterceptor"/>
     </interceptor>

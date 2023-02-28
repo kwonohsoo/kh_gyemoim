@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class MemberVO {
 
-  private Long uNo; // 회원번호
+  private Integer uno; // 회원번호
   private String email; //이메일
   private String password; //패스워드
   private String name; //이름
@@ -14,12 +14,11 @@ public class MemberVO {
   private String address; //주소
   private int interest; //관심사
   private String bankName; //은행명
-  private String bankAccountNumber; //계좌번호
+  private Integer bankAccountNumber; //계좌번호
   private String accountHolder; //예금주
   private String identifier; //식별자
   private double creditRating; //신용등급
   private double plusRate; //추가이율
   private int count; //무단이탈 횟수
   private String enrollDate; //회원가입일
-
 }

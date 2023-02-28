@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+<body>
 <!-- Page Content-->
 <section class="py-5">
   <div class="container px-5 my-5">
@@ -32,19 +35,20 @@
           <!-- Post title-->
           <h1 class="fw-bolder mb-1">마이 페이지</h1>
           <!-- 일반회원 기본 노출 -->
-          <form action="/member/mypage/update" method="post">
+          <form action="update" method="post">
             <!--마이페이지-->
             <div id="personInfo">
               <!--테이블 형식으로 보여줄거니까 table시작-->
               <table class="person-tb">
                 <tbody>
+
                 <tr>
                   <th>회원번호</th>
                   <td>
                     <input type="text"
-                           name="uNo"
-                           id="uNo"
-                           value="${my.getUNo()}"
+                           name="uno"
+                           id="uno"
+                           value="${login.uno}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -56,7 +60,7 @@
                     <input type="text"
                            name="name"
                            id="name"
-                           value="${my.name}"
+                           value="${login.name}"
                            class="form-control">
                   </td>
                 </tr>
@@ -67,7 +71,7 @@
                     <input type="text"
                            name="email"
                            id="email"
-                           value="${my.email}"
+                           value="${login.email}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -80,7 +84,7 @@
                            name="password"
                            id="password"
                            class="form-control "
-                           value=""
+                           value="${login.password}"
                            placeholder="비밀번호는 4~16자로 입력해 주세요.">
                   </td>
                 </tr>
@@ -92,7 +96,7 @@
                            name="password2"
                            id="password2"
                            class="form-control "
-                           value="">
+                           value="${login.password}">
                   </td>
                 </tr>
 
@@ -102,7 +106,7 @@
                     <input type="text"
                            name="ssn"
                            id="ssn"
-                           value="${my.ssn}"
+                           value="${login.ssn}"
                            readonly="readonly"
                            style="background-color: #e9ecef;border: 1px solid #ced4da;">
 
@@ -112,7 +116,7 @@
                 <tr>
                   <th>휴대폰</th>
                   <td>
-                    <input type="text" id="phone" name="phone" value="${my.phone}">
+                    <input type="text" id="phone" name="phone" value="${login.phone}">
                   </td>
                 </tr>
 
@@ -133,7 +137,7 @@
                       </select>
                       <input type="text"
                              name="bankAccountNumber"
-                             value="${my.bankAccountNumber}(${my.bankName})"
+                             value="${login.bankAccountNumber}"
                              placeholder="'-'를 빼고 입력해주세요."
                              style="width:70%" ;>
                     </div>
@@ -146,7 +150,7 @@
                     <input type="text"
                            name="creditRating"
                            id="creditRating"
-                           value="${my.creditRating}"
+                           value="${login.creditRating}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -158,7 +162,7 @@
                     <input type="text"
                            name="plusRate"
                            id="plusRate"
-                           value="${my.plusRate}"
+                           value="${login.plusRate}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -170,7 +174,7 @@
                     <input type="text"
                            name="count"
                            id="count"
-                           value="${my.count}"
+                           value="${login.count}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -182,7 +186,7 @@
                     <input type="text"
                            name="enrollDate"
                            id="enrollDate"
-                           value="${my.enrollDate}"
+                           value="${login.enrollDate}"
                            class="form-control"
                            readonly="readonly">
                   </td>
@@ -198,7 +202,7 @@
                            placeholder="우편번호">
                     <button type="button" id="postcodify_search_button" class="btn btn-primary">주소검색</button>
                     <span class="input_area">
-                                        <input type="text" name="address" class="form-control postcodify_address"
+                                        <input type="text" name="address" value="${login.address}" class="form-control postcodify_address"
                                                placeholder="주소">
                                         <input type="text" name="address" class="form-control postcodify_address"
                                                placeholder="상세주소">
@@ -208,9 +212,8 @@
                 </tbody>
               </table>
               <div class="btnArea join-footer py-5">
-                <button type="submit" value="수정하기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                        onclick="location.href='write.jsp'"/>
-                수정하기</button>
+                <button type="submit" class="btn btn-primary btn-lg px-4 me-sm-3">수정하기</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" id="checkDelete">탈퇴하기</button>
               </div>
             </div>
           </form>
@@ -219,5 +222,12 @@
     </div>
   </div>
 </section>
+</body>
+<script>
+    $(function (){
+        $("#checkDelete").click(function(){
+
+        });
+</script>
 
 
