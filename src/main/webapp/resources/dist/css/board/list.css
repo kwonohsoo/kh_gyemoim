@@ -1,3 +1,16 @@
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-container .search-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 16px;
+}
+
 .list-btn-area {
   display: flex;
   justify-content: flex-end;

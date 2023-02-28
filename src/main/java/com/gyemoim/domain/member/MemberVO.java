@@ -21,7 +21,5 @@ public class MemberVO {
   private double plusRate; //추가이율
   private int count; //무단이탈 횟수
   private String enrollDate; //회원가입일
-  private String sessionKey;
-  private String sessionLimit;
 
 }

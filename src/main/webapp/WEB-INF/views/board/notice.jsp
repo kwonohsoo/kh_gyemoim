@@ -1,23 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="false" %>
-
 
 <%@ include file="../include/header.jspf" %>
 
-
-<link href="/resources/dist/css/board/list.css" rel="stylesheet"/>
-
+<link href="<c:url value="/resources/dist/css/board/list.css"/>" rel="stylesheet"/>
 
 <section class="py-5">
   <div class="container px-5">
     <div class="row">
       <div class="col-11">
-        <div class="title">
-          <h1>공지사항</h1>
-          <p>계모임의 소식을 전합니다</p>
+        <div class="search-container">
+          <div class="title">
+            <h1>공지사항</h1>
+            <p>계모임의 소식을 전합니다</p>
+          </div>
+          <%-- 제목/내용/작성자 기준으로 게시글 검색하는 코드 --%>
+          <div class="search-box">
+            <form name="search_form" action="/board/getSearchList">
+              <select name="type">
+                <option selected value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="name">작성자</option>
+              </select>
+              <input type="text" name="keyword" value="" placeholder="검색어를 입력하세요."></input>
+              <button type="submit">검색</button>
+            </form>
+          </div>
         </div>
         <table class="table table-hover">
           <colgroup>

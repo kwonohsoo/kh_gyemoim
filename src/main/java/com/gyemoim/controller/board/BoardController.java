@@ -1,7 +1,9 @@
 package com.gyemoim.controller.board;
 
+import com.gyemoim.domain.board.BoardVO;
 import com.gyemoim.domain.board.PageVO;
 import com.gyemoim.domain.board.ReplyVO;
+import com.gyemoim.dto.board.BoardListDTO;
 import com.gyemoim.service.board.BoardService;
 import com.gyemoim.service.board.ReplyService;
 import org.springframework.stereotype.Controller;
@@ -51,6 +53,12 @@ public class BoardController {
     return "board/read";
   }
 
-
+  @RequestMapping(value = "/getSearchList", method = RequestMethod.GET)
+  private String getSearchList(BoardListDTO dto, @RequestParam("type") String type, @RequestParam("keyword") String keyword, Model model) throws Exception {
+    List<BoardVO> searchList = boardService.searchList(dto);
+    System.out.println(searchList);
+    model.addAttribute("listAll", searchList);
+    return "/board/searchList";
+  }
 
 }

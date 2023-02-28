@@ -2,6 +2,7 @@ package com.gyemoim.dao.board;
 
 import com.gyemoim.domain.board.BoardVO;
 import com.gyemoim.domain.board.PageVO;
+import com.gyemoim.dto.board.BoardListDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +28,11 @@ public class BoardDAOImpl implements BoardDAO{
   @Override
   public BoardVO readDetail(int bid) {
     return sqlSession.selectOne("BoardMapper.readDetail", bid);
+  }
+
+  @Override
+  public List<BoardVO> searchList(BoardListDTO dto) throws Exception {
+    return sqlSession.selectList("BoardListMapper.selectSearchList", dto);
   }
 
 }
