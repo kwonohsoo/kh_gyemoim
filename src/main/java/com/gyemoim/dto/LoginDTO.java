@@ -6,10 +6,6 @@ public class LoginDTO {
     private String password;
     private boolean useCookie;
 
-    /////////////////////////// 확인필요
-//    private String sessionKey;
-//    private Date sessionLimit;
-/////////////////////////////////////////////
     public String getEmail() {
         return email;
     }
@@ -38,12 +34,4 @@ public class LoginDTO {
                 + useCookie + "]";
     }
 
-    
-    ////////////////////////////////////  확인 필요
-//    public String getSessionKey() {
-//        return sessionKey;
-//    }
-//    public void setSessionKey(String sessionKey) {
-//        this.sessionKey = sessionKey;
-//    }
 }
