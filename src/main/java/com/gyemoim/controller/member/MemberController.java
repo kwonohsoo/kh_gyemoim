@@ -1,7 +1,7 @@
 package com.gyemoim.controller.member;
 
 import com.gyemoim.domain.member.MemberVO;
-import com.gyemoim.dto.LoginDTO;
+import com.gyemoim.dto.member.LoginDTO;
 import com.gyemoim.service.member.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
