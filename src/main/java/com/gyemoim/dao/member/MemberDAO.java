@@ -13,5 +13,8 @@ public interface MemberDAO {
     public void keepLogin( Map<String, Object> paramMap);
     // 세션 키 // 유효기간이 남아 있으면서 해당 sessionId를 가지는 사용자 정보를 꺼내오는 부분
     MemberVO checkMemberWithSessionKey(String value);
-
+    // email 찾기
+    public MemberVO memberEmailSearch(MemberVO vo);
+    // password 찾기
+    public MemberVO memberPwdSearch(MemberVO vo);
 }

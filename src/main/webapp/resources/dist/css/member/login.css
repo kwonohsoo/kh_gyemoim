@@ -44,7 +44,7 @@
 
 .login_wrap_inner h3.simp_log_ttl:before,
 .login_wrap_inner h3.simp_log_ttl:after {
-    background: skyblue;
+    background: #004dc1;
     content: "";
     height: 1px;
     position: absolute;
@@ -142,7 +142,7 @@
 }
 
 .login_btns_wrap a.login_btn {
-    background: #0693c1;
+    background: #004dc1;
     cursor: pointer;
 }
 
