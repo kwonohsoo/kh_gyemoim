@@ -4,6 +4,9 @@ public class LoginDTO {
 
     private String email;
     private String password;
+    private String ssn;
+    private String name;
+    private String phone;
     private boolean useCookie;
 
     public String getEmail() {
@@ -20,6 +23,29 @@ public class LoginDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public boolean isUseCookie() {return useCookie;}

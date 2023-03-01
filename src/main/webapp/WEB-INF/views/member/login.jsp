@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %> <%@ include
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include
         file="../include/header.jspf" %>
 
 <!-- Page Content-->
@@ -6,9 +7,9 @@
   <div class="container px-5">
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-6">
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="resources/dist/css/member/login.css" rel="stylesheet" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="${path}/resources/dist/css/member/login.css" rel="stylesheet"/>
         <!-- <script src="/test/js/jquery-3.6.0.js"></script> -->
 
         <section class="login">
@@ -28,7 +29,7 @@
                             id="email"
                             class="login_input"
                             name="email"
-                            placeholder="이메일을 입력해 주세요."
+                            placeholder="이메일을 입력해 주세요. (Email)"
                             type="email"
                     />
 
@@ -36,12 +37,12 @@
                             id="password"
                             class="login_input"
                             name="password"
-                            placeholder="비밀번호를 입력해 주세요."
+                            placeholder="비밀번호를 입력해 주세요. (Password)"
                             type="password"
                     />
 
                     <p class="login_rem">
-                      <input id="remEmail" name="useCookie" type="checkbox" />
+                      <input id="remEmail" name="useCookie" type="checkbox"/>
                       <label for="remEmail">자동 로그인</label>
                     </p>
                   </fieldset>
@@ -55,11 +56,11 @@
                 <div class="login_frm_guide">
                   <ul class="p-0">
                     <li>
-                      <a href="<%=request.getContextPath()%>/">아이디찾기</a>
+                      <a href="<%=request.getContextPath()%>/member/findEmail">이메일 찾기</a>
                     </li>
                     <li>｜</li>
                     <li>
-                      <a href="<%=request.getContextPath()%>/">비밀번호찾기</a>
+                      <a href="<%=request.getContextPath()%>/member/findPwd">비밀번호 찾기</a>
                     </li>
                     <li>｜</li>
                     <li>
@@ -72,7 +73,32 @@
           </div>
         </section>
 
-        <%--js--%> <%@ include file="../include/footer.jspf" %>
+        <%--                <script type="text/javascript">--%>
+        <%--                    let email = document.querySelector('#email')--%>
+        <%--                    let password = document.querySelector('#password')--%>
+        <%--                    let btn = document.querySelector('#login')--%>
+
+        <%--                    btn.addEventListener('click', () => {--%>
+        <%--                        if(email.value == "") {--%>
+        <%--                            email = email.nextElementSibling--%>
+        <%--                            email.classList.add('warning')--%>
+        <%--                            setTimeout(() => {--%>
+        <%--                                email.classList.remove('warning')--%>
+        <%--                            }, 1500)--%>
+        <%--                        } else if(password.value == "") {--%>
+        <%--                            password = password.nextElementSibling--%>
+        <%--                            password.classList.add('warning')--%>
+        <%--                            setTimeout(() => {--%>
+        <%--                                password.classList.remove('warning')--%>
+        <%--                            }, 1500)--%>
+        <%--                        }--%>
+        <%--                    })--%>
+        <%--                </script>--%>
+
+
+
+        <%--js--%>
+        <%@ include file="../include/footer.jspf" %>
       </div>
     </div>
   </div>
