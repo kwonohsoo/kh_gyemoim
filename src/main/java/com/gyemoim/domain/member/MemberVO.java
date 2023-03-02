@@ -12,6 +12,8 @@ public class MemberVO {
   private String ssn; //주민등록번호
   private String phone; //전화번호
   private String address; //주소
+  private String addresscode; //우편번호
+  private String addressdetail; //상세주소
   private int interest; //관심사
   private String bankName; //은행명
   private Integer bankAccountNumber; //계좌번호

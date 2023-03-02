@@ -12,5 +12,7 @@ public class MypageDTO {
     String bankName; //은행
     Integer bankAccountNumber; //계좌번호
     String address; //주소
+    String addresscode;// 우편번호
+    String addressdetail;// 상세주소
 
 }

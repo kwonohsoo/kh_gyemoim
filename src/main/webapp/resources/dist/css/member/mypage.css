@@ -1,0 +1,28 @@
+.join-footer {
+  text-align: center;
+}
+
+
+.btnArea {
+   display: flex;
+   justify-content: center;
+}
+
+
+/*personInfo*/
+.person-tb th {
+    padding: 0.8rem 20px 0.8rem 0;
+}
+
+
+.d-flex {
+  display: flex !important;
+  flex-direction: column;
+}
+
+#aside {
+    position: sticky;
+    top: 100px;
+    right: 300px;
+}
+

@@ -18,6 +18,8 @@
             name = #{name},
             phone = #{phone},
             address = #{address},
+            addresscode = #{addresscode},
+            addressdetail = #{addressdetail},
             bankName = #{bankName},
             bankAccountNumber = #{bankAccountNumber}
         WHERE UNO = #{uno}
@@ -25,7 +27,7 @@
 
     <!-- 회원삭제   -->
     <delete id="delete">
-    delete from member
-    WHERE uno =#{uno};
+    delete member
+    WHERE uno =#{uno}
     </delete>
 </mapper>
