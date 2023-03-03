@@ -2,8 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page session="false" %>
-<%@ page isELIgnored="false" %>
 
 <%@ include file="../include/header.jspf" %>
 
@@ -32,11 +30,22 @@
               <td>${board.getContent()}</td>
             </tr>
           </table>
+          <form action="/delete" method="get">
+            <input type="hidden" id="write-input-uNo" name="uNo" value="${login.getUNo()}">
+            <input type="hidden" id="write-input-bid" name="bid" value="${board.getBid()}">
+            <div class="write-btn-area text-center">
+              <button type="submit" class="btn btn-danger btn-lg px-4 me-sm-3">
+                글 삭제
+              </button>
+            </div>
+          </form>
           <form action="/replyWrite">
             <p>댓글</p>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <textarea name="content" id="content" cols="70" rows="2"></textarea>
             <input type="hidden" name="bid" value="${board.getBid()}">
-            <p><button type="submit">댓글 작성</button></p>
+            <p>
+              <button type="submit">댓글 작성</button>
+            </p>
           </form>
           <table>
             <c:forEach var="reply" items="${reply}">

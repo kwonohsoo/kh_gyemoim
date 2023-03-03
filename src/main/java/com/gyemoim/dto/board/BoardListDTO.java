@@ -13,7 +13,7 @@ public class BoardListDTO {// 어떤 유형으로 검색하는지 저장하는 t
     private String writeDate;
 
     // 검색필터
-    private String type;// 검색 타입
-    private String keyword;// 검색 내용
+    private String type; // 검색 타입
+    private String keyword; // 검색 내용
 
 }
