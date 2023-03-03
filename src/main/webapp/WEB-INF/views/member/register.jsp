@@ -1,6 +1,13 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ include file="../include/header.jspf" %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link href="/resources/dist/css/member/register.css" rel="stylesheet" />
+
+
+
 <body>
 <!-- Page Content-->
 <section class="py-5">
@@ -12,7 +19,7 @@
           <p>계모임 가입으로 목돈 모으기 성공! </p>
 
 
-          <form action="/member/registerPost" method="post" name="form" onsubmit="return checkAll();">
+          <form action="/member/registerPost" method="post" name="form">
             <!--이메일-->
             <div class="col-11 ">
               <div class="text-start mb-5 passbox">
@@ -20,8 +27,7 @@
                 <div class="flex">
                   <input type="email" id="email" name="email" autocapitalize="off" autocomplete="off"
                          placeholder="email@naver.com">
-                  <button type="button" action="/member/checkMember" class="button-request" id="emailCheck">
-                    <span>중복 확인</span>
+                  <button type="button" action="/member/checkMember" class="btn btn-primary btn-md px-4 button-request" id="emailCheck"><span>중복 확인</span>
                   </button>
                   <span id="result"></span>
                 </div>
@@ -32,7 +38,7 @@
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">비밀번호</h5>
-                <input type="password" id="password" name="password" autocapitalize="off" autocomplete="off"
+                <input type="password"  id = "password" name="password" autocapitalize="off" autocomplete="off"
                        placeholder="영문 대소문자와 숫자 4~12자리로 입력">
               </div>
             </div>
@@ -41,14 +47,14 @@
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">이름</h5>
-                <input type="text" id="name" name="name" autocapitalize="off" autocomplete="off" placeholder="이름 입력">
+                <input type="text" id = "name" name="name" autocapitalize="off" autocomplete="off" placeholder="이름 입력">
               </div>
             </div>
             <!--주민등록번호-->
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">주민등록번호</h5>
-                <input type="text" id="ssn" name="ssn" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
+                <input type="text"  id ="ssn" name="ssn" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
                 <em>생년월일은 필수 입력 정보입니다.</em>
               </div>
             </div>
@@ -57,10 +63,9 @@
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">휴대폰</h5>
-                <div class="flex">
-                  <input type="text" id="phone" name="phone" autocapitalize="off" autocomplete="off"
-                         placeholder="-빼고 숫자 입력">
-                  <button type="button" class="button-request"><span>인증요청</span></button>
+                 <div class="flex">
+                  <input type="text"   id ="phone"  name="phone" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
+
                 </div>
               </div>
             </div>
@@ -70,11 +75,11 @@
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">주소</h5>
                 <div class="flex">
-                  <input type="text" name="address" class="postcodify_postcode5" placeholder="우편번호 검색">
-                  <button type="button" class="button-request" id="postcodify_search_button"><span>검색</span></button>
+                  <input type="text" name="addresscode" class="postcodify_postcode5" placeholder="우편번호 검색">
+                  <button type="button" class="btn btn-primary btn-md px-4 button-request" id="postcodify_search_button"><span>검색</span></button>
                 </div>
-                <span class="input_area"><input type="text" name="address" class="postcodify_address"
-                                                placeholder="상세주소 검색"></span>
+                <span class="input_area"><input type="text" name="address" class="postcodify_address" placeholder="우편번호 검색"></span>
+                <span class="input_area"><input type="text" name="addressdetail" placeholder="상세주소 입력"></span>
               </div>
             </div>
 
@@ -82,7 +87,7 @@
             <!--회원가입 완료-->
             <div class="col-11">
               <div class="text-start mb-5 passbox">
-                <button type="submit" class="button-complete" onclick="fnSubmit(); return false;">회원가입 완료</button>
+                <button type="submit" class="btn btn-primary btn-md px-4 button-complete" onclick="fnSubmit(); return false;">회원가입 완료</button>
 
               </div>
             </div>
@@ -107,61 +112,59 @@
 </body>
 
 <script>
-  let path = "${pageContext.request.contextPath }";
-  const joinInsertForm = document.getElementsByName('form');
+var path = "${pageContext.request.contextPath }";
 
-  $(document).ready(function () {
-    let msg = "${msg}";
-    if (msg != "") {
-      alert(msg);
-    }
-  });
+    $(document).ready(function () {
+        var msg = "${msg}";
+        if (msg != "") {
+            alert(msg);
+        }
+    });
 
-  function fnSubmit() {
-    let email_rule =
-        /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    let password_rule = /^[0-9a-zA-Z]{4,12}$/;
-    let phone_rule = /^\d{2,3}\d{3,4}\d{4}$/;
+    function fnSubmit() {
+        var email_rule =
+           /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        var password_rule = /^[0-9a-zA-Z]{4,12}$/;
+        var phone_rule = /^\d{2,3}\d{3,4}\d{4}$/;
 
 
-    if (!email_rule.test($("#email").val())) {
-      alert("메일 형식에 맞게 입력해주세요.");
-      return false;
+         if (!email_rule.test($("#email").val())) {
+            alert("메일 형식에 맞게 입력해주세요.");
+             return false;
 
-    } else if (!password_rule.test($("#password").val())) {
-      alert("비밀번호 형식에 맞게 입력해주세요");
-      return false;
+            }else if (!password_rule.test($("#password").val())) {
+             alert("비밀번호 형식에 맞게 입력해주세요");
+             return false;
 
-    } else if ($("#password").val() == null || $("#password").val() == "") {
-      alert("비밀번호를 입력해주세요.");
-      $("#password").focus();
-      return false;
+          }else if ($("#password").val() == null || $("#password").val() == "") {
+            alert("비밀번호를 입력해주세요.");
+            $("#password").focus();
+            return false;
 
-    } else if ($("#name").val() == null || $("#name").val() == "") {
-      alert("이름을 입력해주세요.");
-      $("#name").focus();
-      return false;
+          }else if ($("#name").val() == null || $("#name").val() == "") {
+               alert("이름을 입력해주세요.");
+               $("#name").focus();
+               return false;
 
-    } else if ($("#ssn").val() == null || $("#ssn").val() == "") {
-      alert("주민등록번호를 입력해주세요.");
-      $("#ssn").focus();
-      return false;
+          }else if ($("#ssn").val() == null || $("#ssn").val() == "") {
+             alert("주민등록번호를 입력해주세요.");
+             $("#ssn").focus();
+             return false;
 
-    } else if ($("#phone").val() == null || $("#phone").val() == "") {
-      alert("휴대폰 번호를 입력해주세요.");
-      $("#phone").focus();
-      return false;
+          }else if ($("#phone").val() == null || $("#phone").val() == "") {
+            alert("휴대폰 번호를 입력해주세요.");
+            $("#phone").focus();
+            return false;
 
-    } else if (!phone_rule.test($("#phone").val())) {
-      alert("휴대폰 번호 형식에 맞게 입력해주세요.");
-      return false;
-    } else {
-      joinInsertForm.action = '/member/registerPost';
-      joinInsertForm.method = 'POST';
-      return joinInsertForm.submit();
-    }
-  }
-
+          }else if (!phone_rule.test($("#phone").val())) {
+            alert("휴대폰 번호 형식에 맞게 입력해주세요.");
+            return false;
+        }else {
+               joinInsertForm.action = '/member/registerPost';
+               joinInsertForm.method = 'POST';
+               return joinInsertForm.submit();
+             }
+           }
 </script>
 
 
@@ -210,5 +213,6 @@
   $("#postcodify_search_button").postcodifyPopUp();
 }); </script>
 
+<%@ include file="../include/footer.jspf" %>
 
 
