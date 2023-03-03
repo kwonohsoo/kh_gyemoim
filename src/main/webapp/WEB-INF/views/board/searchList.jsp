@@ -54,9 +54,29 @@
         <c:forEach var="list" varStatus="status" items="${listAll}">
           <tr>
             <td>${(paging.total - status.index) - ((paging.nowPage - 1) * 10)}</td>
-            <td>
-              <a href="/board/read?bid=${list.bid}">${list.title}</a>
-            </td>
+
+            <c:choose>
+              <c:when test="${list.secret eq 'S'}">
+                <c:choose>
+                  <c:when test="${list.UNo eq login.UNo}">
+                    <td>
+                      <a href="read?bid=${list.getBid()}">${list.getTitle()}
+                      </a>
+                    </td>
+                  </c:when>
+                  <c:otherwise>
+                    <td>
+                      <p onclick="secret()">비밀글 입니다.</p>
+                    </td>
+                  </c:otherwise>
+                </c:choose>
+              </c:when>
+
+              <c:otherwise>
+                <td><a href="read?bid=${list.getBid()}">${list.getTitle()}</a></td>
+              </c:otherwise>
+            </c:choose>
+
             <td>${list.getName()}</td>
             <td><fmt:formatDate value="${list.getWriteDate()}" pattern="yyyy-MM-dd"/></td>
             <td>${list.getViews()}</td>
@@ -86,7 +106,9 @@
             <li>${p}</li>
           </c:when>
           <c:when test="${p != paging.nowPage}">
-            <li><a href="/board/getSearchList?keyword=${spv.getKeyword()}&type=${spv.getType()}&nowPage=${p}&cntPerPage=${paging.cntPerPage}&start=${paging.nowPage}&end=${paging.nowPage * 10}">${p}</a></li>
+            <li>
+              <a href="/board/getSearchList?keyword=${spv.getKeyword()}&type=${spv.getType()}&nowPage=${p}&cntPerPage=${paging.cntPerPage}&start=${paging.nowPage}&end=${paging.nowPage * 10}">${p}</a>
+            </li>
           </c:when>
         </c:choose>
       </c:forEach>

@@ -46,7 +46,29 @@
           <c:forEach var="item" varStatus="status" items="${list}">
             <tr>
               <td>${(paging.total - status.index) - ((paging.nowPage - 1) * 10)}</td>
-              <td><a href="read?bid=${item.getBid()}">${item.getTitle()}</a></td>
+
+              <c:choose>
+                <c:when test="${item.secret eq 'S'}">
+                  <c:choose>
+                    <c:when test="${item.uno eq login.uno}">
+                      <td>
+                        <a href="read?bid=${item.getBid()}">${item.getTitle()}
+                        </a>
+                      </td>
+                    </c:when>
+                    <c:otherwise>
+                      <td>
+                        <p onclick="secret()">비밀글 입니다.</p>
+                      </td>
+                    </c:otherwise>
+                  </c:choose>
+                </c:when>
+
+                <c:otherwise>
+                  <td><a href="read?bid=${item.getBid()}">${item.getTitle()}</a></td>
+                </c:otherwise>
+              </c:choose>
+
               <td>${item.getName()}</td>
               <td><fmt:formatDate value="${item.getWriteDate()}" pattern="yyyy-MM-dd"/></td>
               <td>${item.getViews()}</td>
@@ -89,17 +111,16 @@
 </section>
 
 <script>
-  let selChange = () => {
-    let sel = document.getElementById('cntPerPage').valueOf();
-    location.href = "/board/list?nowPage=${paging.nowPage}&cntPerPage=" + sel;
-  }
-
   function formSubmit() {
     if(document.getElementById("search-input").value === '' ) {
       alert('검색어를 입력해주세요.');
       return false;
     }
     document.getElementById('search-button').submit();
+  }
+
+  function secret() {
+    alert("다른 사람의 비밀글은 볼 수 없습니다.");
   }
 
 </script>

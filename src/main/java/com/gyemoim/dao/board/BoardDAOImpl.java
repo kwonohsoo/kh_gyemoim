@@ -15,6 +15,11 @@ public class BoardDAOImpl implements BoardDAO{
   private SqlSession sqlSession;
 
   @Override
+  public int searchCountBoard(PageVO spv) {
+    return sqlSession.selectOne("BoardMapper.searchCountBoard", spv);
+  }
+
+  @Override
   public int countBoard() {
     return sqlSession.selectOne("BoardMapper.countBoard");
   }
@@ -29,4 +34,13 @@ public class BoardDAOImpl implements BoardDAO{
     return sqlSession.selectOne("BoardMapper.readDetail", bid);
   }
 
+  @Override
+  public void updateViewCnt(int bid) throws Exception {
+    sqlSession.update("BoardMapper.updateViewCnt");
+  }
+
+  @Override
+  public List<BoardVO> searchList(PageVO spv) throws Exception {
+    return sqlSession.selectList("BoardMapper.searchList", spv);
+  }
 }
