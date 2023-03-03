@@ -12,4 +12,8 @@ public interface MemberService {
     void keepLogin( Map<String, Object> paramMap) throws Exception;
 
     public MemberVO checkLoginBefore(String value);
+    // Email 찾기
+    MemberVO memberEmailSearch(MemberVO memberVO);
+    // Password 찾기
+    MemberVO memberPwdSearch(MemberVO memberVO);
 }

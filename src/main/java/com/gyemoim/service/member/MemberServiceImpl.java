@@ -23,6 +23,16 @@ public class MemberServiceImpl implements MemberService {
     System.out.println("service에서 dao keepLogin 수행.");
     memberDAO.keepLogin(map);
   }
+  // Email 찾기
+  @Override
+  public MemberVO memberEmailSearch(MemberVO memberVO) {
+    return memberDAO.memberEmailSearch(memberVO);
+  }
+
+  // Password 찾기
+  public MemberVO memberPwdSearch(MemberVO memberVO) {
+    return memberDAO.memberPwdSearch(memberVO);
+  }
 
   @Override
   public MemberVO checkLoginBefore(String value) {

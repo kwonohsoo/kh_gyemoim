@@ -40,4 +40,16 @@ public class MemberDAOImpl implements MemberDAO {
     // 유효시간이 남아있고(>now()) 전달받은 세션 id와 일치하는 사용자 정보를 꺼낸다.
     return sqlSession.selectOne(namespace + ".checkMemberWithSessionKey", value);
   }
+
+  // Email 찾기
+  public MemberVO memberEmailSearch(MemberVO vo) {
+    System.out.println("==> findEmail() 기능 처리");
+    return sqlSession.selectOne(namespace + ".memberEmailSearch", vo);
+  }
+
+  // Password 찾기
+  public MemberVO memberPwdSearch(MemberVO vo) {
+    System.out.println("==> findEmail() 기능 처리");
+    return sqlSession.selectOne(namespace + ".memberPwdSearch", vo);
+  }
 }
