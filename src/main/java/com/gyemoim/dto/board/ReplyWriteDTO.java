@@ -9,10 +9,12 @@ import java.util.Date;
 @Data
 @ToString
 public class ReplyWriteDTO {
-    private int bid;
-    private long uNo;
-    private String name;
-    private Date repDate;
-    private String comm;
+
+  private int rno;
+  private int bid;
+  private Integer uno;
+  private String name;
+  private Date repDate;
+  private String comm;
 
 }
