@@ -3,7 +3,8 @@
 
 <%@ include file="../include/header.jspf" %>
 
-
+<!-- jQuery 3.1.1 -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <link href="resources/dist/css/board/write.css" rel="stylesheet"/>
 
 
@@ -17,37 +18,56 @@
          </div>
     <form action="/modifyPost" method="post" enctype="multipart/form-data">
 
+    	<input type="hidden" id="write-input-bid" name="bid" value="${board.getBid()}">
+    	<input type="hidden" id="write-input-uNo" name="uNo" value="${login.getUNo()}">
+
       <div class="write-attr">
         <label class="attr-name" for="write-input-title">제목</label>
-        <input type="text" id="write-input-title" name="title" value="타이틀" placeholder="제목을 입력해주세요" required>
+        <input type="text" id="write-input-title" name="title" value="${board.getTitle()}" required>
       </div>
       <div class="write-attr">
         <label class="attr-name" for="write-input-writer">작성자</label>
-        <input type="text" id="write-input-writer" name="name" value="로그인한사람" placeholder="제목을 입력해주세요" required>
+        <input type="text" id="write-input-writer" name="name" value="${board.getName()}" placeholder="제목을 입력해주세요" required>
       </div>
+
 <div class="secret-attr">
         <label class="attr-name" for="write-input-writer">공개설정</label>
         <div class="secretF-9">
-        <div class="secret-detail">
-       <input type="radio" name="secret" id="write-cs_open" value="P" class="radio" />
-        <label class="attr-name" for="write-cs_open">공개</label>
-        </div>
-        <div class="secret-detail">
-      <input type="radio" name="secret" id="write-cs_open" value="S" class="radio" />
-        <label class="attr-name" for="write-cs_open">비공개</label>
-        </div>
+        <c:choose>
+            <c:when test="${board.getSecret() == 'S'}">
+                    <div class="secret-detail">
+              <input type="radio" name="secret" id="write-cs_open" value="P" class="radio" />
+                      <label class="attr-name" for="write-cs_open">공개</label>
+                      </div>
+                      <div class="secret-detail">
+                    <input type="radio" name="secret" id="write-cs_open" value="S" class="radio" checked/>
+                      <label class="attr-name" for="write-cs_open">비공개</label>
+                      </div>
+              </c:when>
+             <c:when test="${board.getSecret() == 'P'}">
+            <div class="secret-detail">
+                <input type="radio" name="secret" id="write-cs_open" value="P" class="radio" checked />
+                        <label class="attr-name" for="write-cs_open">공개</label>
+                        </div>
+                        <div class="secret-detail">
+                      <input type="radio" name="secret" id="write-cs_open" value="S" class="radio" />
+                        <label class="attr-name" for="write-cs_open">비공개</label>
+                        </div>
+            </c:when>
+        </c:choose>
     </div>
     </div>
       <div class="write-attr">
-        <textarea class="form-control" name="content" required>내용냉ㅅㅇ</textarea>
+        <textarea class="form-control" name="content" required>${board.getContent()}</textarea>
       </div>
 
  <div class="write-attr Attached">
         <label class="attr-name" for="upload" multipart>첨부파일</label>
         <div class="attr-img">
-        <input type="file" class="" name="UploadFile" value="" id="theFile">
-         <img id="ImgPreview" src="" class="preview" />
-         <input type="button" id="removeImage" value="취소하기" class="btn-rmv" />
+
+         <input type="file" class="" name="UploadFile" value="${attached.getFileName()}" id="theFile">
+         <img id="ImgPreview" name="fileName" src="/fileDownload?fileName=${attached.getFileName()}" class="preview" />
+         <input type="button" id="removeImage" value="X" class="btn-rmv" />
         </div>
       </div>
 
@@ -65,6 +85,8 @@
 
 
 <script>
+
+<!--첨부파일 -->
 function readURL(input, imgControlName) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();

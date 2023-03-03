@@ -4,12 +4,17 @@ import com.gyemoim.dto.board.BoardWriteDTO;
 import com.gyemoim.service.board.BoardWriteService;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 @Controller
 public class BoardWriteController {
@@ -24,14 +29,10 @@ public class BoardWriteController {
 
     @RequestMapping(value = "/writePost" ,method = RequestMethod.POST)
     public String writePost(BoardWriteDTO dto, RedirectAttributes request) throws Exception {
-       //logger.info("write()");
         System.out.println("해결이 되었습니당");
         service.write(dto);
-        //BoardWriteDAO dao = sqlSession.getMapper(BoardWriteDAO.class);
-        //dao.write(request.getParameter("name"), request.getParameter("title"), request.getParameter("content"));
         request.addFlashAttribute("message","Sucess!");
         return "redirect:/board/list";
     }
-
 
 }

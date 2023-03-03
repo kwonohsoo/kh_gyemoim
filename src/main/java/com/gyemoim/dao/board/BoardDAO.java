@@ -9,12 +9,8 @@ public interface BoardDAO {
 
   int countBoard();
 
-  int searchCountBoard(PageVO spv);
-
   List<BoardVO> selectBoard(PageVO vo);
 
   BoardVO readDetail(int bid);
-
-  List<BoardVO> searchList(PageVO spv) throws Exception;
 
 }

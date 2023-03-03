@@ -55,6 +55,7 @@
 .it {
   height: 100px;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .btn-rmv{
@@ -62,16 +63,18 @@
 }
 
 .rmv {
-cursor: pointer;
-color: #fff;
-border: 1px solid #fff;
-display: inline-block;
-background: rgba(255, 0, 0, 1);
-margin: -5px 0;
-padding: 0.8rem !important;
-width: fit-content !important;
-line-height: unset;
-vertical-align: top;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #fff;
+    display: inline-block;
+    background: rgba(255, 0, 0, 1);
+    margin: 0 0 0 -15px;
+    width: 30px !important;
+    height: 30px;
+    font-size: 14px;
+    line-height: 0;
+    vertical-align: top;
+    border-radius: 50%;
 }
 
 .rmv:hover {

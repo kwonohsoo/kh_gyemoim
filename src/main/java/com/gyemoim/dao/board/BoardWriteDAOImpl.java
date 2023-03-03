@@ -11,25 +11,18 @@ public class BoardWriteDAOImpl implements BoardWriteDAO {
     @Inject
     private SqlSession sqlSession;
     private static String namespace = "com.gyemoim.dao.board.BoardWriteDAO";
+    //글 쓰기
     @Override
     public void write(BoardWriteDTO dto) throws Exception{
         System.out.println("들어와라 쫌"+dto);
         sqlSession.insert(namespace + "BoardWriteMapper.write", dto);
         //return session.selectOne(namespace +".write", dto);
     }
-
+    //첨부파일 쓰기
     @Override
-    public void addAttach(String fileName) throws Exception {
-        System.out.println("첨부파일" + fileName);
-        sqlSession.insert(namespace + "BoardWriteMapper.addAttach", fileName);
+    public void addAttachedName(String savedName) throws Exception {
+        System.out.println("파일이름" + savedName);
+        sqlSession.insert(namespace + "BoardWriteMapper.addAttachedName", savedName);
     }
-
-    /*수정페이지*/
-    @Override
-    public void modify(BoardWriteDTO dto) throws Exception {
-        sqlSession.update(namespace + "BoardWriteMapper.modify", dto);
-
-    }
-
 
 }

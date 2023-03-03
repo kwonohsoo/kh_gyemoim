@@ -25,26 +25,5 @@
     WHERE BID = #{bid}
   </select>
 
-  <select id="searchList" parameterType="com.gyemoim.domain.board.PageVO" resultType="com.gyemoim.domain.board.BoardVO">
-    select *
-    from (select rownum rn, A.*
-          from (select *
-                from BOARD
-                where title like '%' || #{keyword} || '%'
-                   or content like '%' || #{keyword} || '%'
-                   or name = #{keyword}
-                order by bid desc) A)
-    where RN between ${start} and ${end}
-  </select>
-
-  <select id="searchCountBoard" resultType="int">
-    select count(*)
-    from BOARD
-    where title like '%' || #{keyword} || '%'
-       or content like '%' || #{keyword} || '%'
-       or name = #{keyword}
-  </select>
-
-
 
 </mapper>
