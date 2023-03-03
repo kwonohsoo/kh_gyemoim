@@ -16,7 +16,7 @@ public class MemberVO {
   private String addressdetail; //상세주소
   private int interest; //관심사
   private String bankName; //은행명
-  private Integer bankAccountNumber; //계좌번호
+  private String bankAccountNumber; //계좌번호
   private String accountHolder; //예금주
   private String identifier; //식별자
   private double creditRating; //신용등급

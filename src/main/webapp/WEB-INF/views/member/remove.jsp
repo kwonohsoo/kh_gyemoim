@@ -53,10 +53,13 @@
           alert('비밀번호가 일치하지 않습니다.');
      }
      else if(document.getElementById('password1').value==document.getElementById('password2').value){
-          alert('비밀번호가 일치합니다.');
-          form.action = "http://localhost:8080/member/delete";
-          form.mothod = "POST";
-          form.submit();
+            if(confirm('회원탈퇴를 진행합니다.')){
+              form.action = "http://localhost:8080/member/delete";
+              form.mothod = "POST";
+              form.submit();
+              alert('탈퇴가 완료되었습니다.');
+            }
+            else{return false;}
           }
  }
  </script>
