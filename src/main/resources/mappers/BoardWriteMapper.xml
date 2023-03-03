@@ -6,7 +6,7 @@
 
   <insert id="write">
     INSERT INTO BOARD(bid, uNo, name, title, content, type, views, writeDate, secret)
-    VALUES(BID_BOA_SEQ.NEXTVAL, #{uNo}, #{name}, #{title}, #{content},'공지사항', '0', SYSDATE , #{secret})
+    VALUES(BID_BOA_SEQ.NEXTVAL, #{uno}, #{name}, #{title}, #{content},'공지사항', '0', SYSDATE , #{secret})
   </insert>
 
   <insert id="addAttachedName">

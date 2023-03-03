@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @ToString
 public class BoardWriteDTO {
-    private long uNo;
+    private Integer uno;
     private String name;
     private String title;
     private String content;

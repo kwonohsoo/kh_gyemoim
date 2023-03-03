@@ -10,7 +10,7 @@ import java.util.Date;
 @ToString
 public class ReplyWriteDTO {
     private int bid;
-    private long uNo;
+    private Integer uNo;
     private String name;
     private Date repDate;
     private String comm;
