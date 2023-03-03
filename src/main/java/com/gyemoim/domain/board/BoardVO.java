@@ -15,7 +15,7 @@ public class BoardVO {
   private int views;
   private String content;
   private Date writeDate;
-  private char secret;
+  private String secret;
 
 
 }

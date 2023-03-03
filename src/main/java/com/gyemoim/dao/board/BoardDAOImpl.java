@@ -2,7 +2,6 @@ package com.gyemoim.dao.board;
 
 import com.gyemoim.domain.board.BoardVO;
 import com.gyemoim.domain.board.PageVO;
-import com.gyemoim.dto.board.BoardListDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +20,11 @@ public class BoardDAOImpl implements BoardDAO{
   }
 
   @Override
+  public int searchCountBoard(PageVO spv) {
+    return sqlSession.selectOne("BoardMapper.searchCountBoard", spv);
+  }
+
+  @Override
   public List<BoardVO> selectBoard(PageVO vo) {
     return sqlSession.selectList("BoardMapper.selectBoard", vo);
   }
@@ -31,8 +35,9 @@ public class BoardDAOImpl implements BoardDAO{
   }
 
   @Override
-  public List<BoardVO> searchList(BoardListDTO dto) throws Exception {
-    return sqlSession.selectList("BoardListMapper.selectSearchList", dto);
+  public List<BoardVO> searchList(PageVO spv) throws Exception {
+    System.out.println("sear dao");
+    return sqlSession.selectList("BoardListMapper.selectSearchList", spv);
   }
 
 }

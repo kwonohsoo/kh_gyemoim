@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page session="false" %>
 
 <%@ include file="../include/header.jspf" %>
 
@@ -24,8 +23,8 @@
                 <option value="content">내용</option>
                 <option value="name">작성자</option>
               </select>
-              <input type="text" name="keyword" value="" placeholder="검색어를 입력하세요."></input>
-              <button type="submit">검색</button>
+              <label for="search-input"></label><input type="text" id="search-input" name="keyword" placeholder="검색어를 입력하세요." />
+              <button id="search-button" onclick="formSubmit()">검색</button>
             </form>
           </div>
         </div>
@@ -55,8 +54,16 @@
           </c:forEach>
         </table>
         <div class="list-btn-area">
-          <input type="button" value="글쓰기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                 onclick="location.href='/write'"/>
+          <c:choose>
+            <c:when test="${login!=null}">
+              <input type="button" value="글쓰기" class="btn btn-primary btn-lg px-4 me-sm-3"
+                     onclick="location.href='/write'"/>
+            </c:when>
+            <c:when test="${login==null}">
+              <input type="button" value="글쓰기" class="btn btn-primary btn-lg px-4 me-sm-3"
+                     onclick="alert('로그인을 해주세요');"/>
+            </c:when>
+          </c:choose>
         </div>
         <ul class="page-list">
           <c:if test="${paging.startPage != 1}">
@@ -86,6 +93,15 @@
     let sel = document.getElementById('cntPerPage').valueOf();
     location.href = "/board/list?nowPage=${paging.nowPage}&cntPerPage=" + sel;
   }
+
+  function formSubmit() {
+    if(document.getElementById("search-input").value === '' ) {
+      alert('검색어를 입력해주세요.');
+      return false;
+    }
+    document.getElementById('search-button').submit();
+  }
+
 </script>
 
 <%@ include file="../include/footer.jspf" %>

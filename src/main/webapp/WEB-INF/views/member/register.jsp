@@ -12,17 +12,16 @@
           <p>계모임 가입으로 목돈 모으기 성공! </p>
 
 
-          <form action="/member/registerPost" method="post">
-
-
+          <form action="/member/registerPost" method="post" name="form" onsubmit="return checkAll();">
             <!--이메일-->
             <div class="col-11 ">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">이메일</h5>
                 <div class="flex">
-                  <input type="text" id="email" name="email" autocapitalize="off" autocomplete="off"
+                  <input type="email" id="email" name="email" autocapitalize="off" autocomplete="off"
                          placeholder="email@naver.com">
-                  <button type="button" action="/member/checkMember" class="button-request" id="emailCheck"><span>중복 확인</span>
+                  <button type="button" action="/member/checkMember" class="button-request" id="emailCheck">
+                    <span>중복 확인</span>
                   </button>
                   <span id="result"></span>
                 </div>
@@ -33,8 +32,8 @@
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">비밀번호</h5>
-                <input type="text" name="password" autocapitalize="off" autocomplete="off"
-                       placeholder="8~16자리/영문 대소문자, 숫자,특수문자 조합">
+                <input type="password" id="password" name="password" autocapitalize="off" autocomplete="off"
+                       placeholder="영문 대소문자와 숫자 4~12자리로 입력">
               </div>
             </div>
 
@@ -42,14 +41,14 @@
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">이름</h5>
-                <input type="text" name="name" autocapitalize="off" autocomplete="off" placeholder="이름 입력">
+                <input type="text" id="name" name="name" autocapitalize="off" autocomplete="off" placeholder="이름 입력">
               </div>
             </div>
             <!--주민등록번호-->
             <div class="col-11">
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">주민등록번호</h5>
-                <input type="text" name="ssn" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
+                <input type="text" id="ssn" name="ssn" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
                 <em>생년월일은 필수 입력 정보입니다.</em>
               </div>
             </div>
@@ -59,7 +58,8 @@
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">휴대폰</h5>
                 <div class="flex">
-                  <input type="text" name="phone" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
+                  <input type="text" id="phone" name="phone" autocapitalize="off" autocomplete="off"
+                         placeholder="-빼고 숫자 입력">
                   <button type="button" class="button-request"><span>인증요청</span></button>
                 </div>
               </div>
@@ -82,7 +82,7 @@
             <!--회원가입 완료-->
             <div class="col-11">
               <div class="text-start mb-5 passbox">
-                <button type="submit" class="button-complete">회원가입 완료</button>
+                <button type="submit" class="button-complete" onclick="fnSubmit(); return false;">회원가입 완료</button>
 
               </div>
             </div>
@@ -106,6 +106,66 @@
 </section>
 </body>
 
+<script>
+  let path = "${pageContext.request.contextPath }";
+  const joinInsertForm = document.getElementsByName('form');
+
+  $(document).ready(function () {
+    let msg = "${msg}";
+    if (msg != "") {
+      alert(msg);
+    }
+  });
+
+  function fnSubmit() {
+    let email_rule =
+        /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    let password_rule = /^[0-9a-zA-Z]{4,12}$/;
+    let phone_rule = /^\d{2,3}\d{3,4}\d{4}$/;
+
+
+    if (!email_rule.test($("#email").val())) {
+      alert("메일 형식에 맞게 입력해주세요.");
+      return false;
+
+    } else if (!password_rule.test($("#password").val())) {
+      alert("비밀번호 형식에 맞게 입력해주세요");
+      return false;
+
+    } else if ($("#password").val() == null || $("#password").val() == "") {
+      alert("비밀번호를 입력해주세요.");
+      $("#password").focus();
+      return false;
+
+    } else if ($("#name").val() == null || $("#name").val() == "") {
+      alert("이름을 입력해주세요.");
+      $("#name").focus();
+      return false;
+
+    } else if ($("#ssn").val() == null || $("#ssn").val() == "") {
+      alert("주민등록번호를 입력해주세요.");
+      $("#ssn").focus();
+      return false;
+
+    } else if ($("#phone").val() == null || $("#phone").val() == "") {
+      alert("휴대폰 번호를 입력해주세요.");
+      $("#phone").focus();
+      return false;
+
+    } else if (!phone_rule.test($("#phone").val())) {
+      alert("휴대폰 번호 형식에 맞게 입력해주세요.");
+      return false;
+    } else {
+      joinInsertForm.action = '/member/registerPost';
+      joinInsertForm.method = 'POST';
+      return joinInsertForm.submit();
+    }
+  }
+
+</script>
+
+
+<!— 아이디 중복확인 —>
 <script>
   $(function () {
     $("#emailCheck").click(function () {
@@ -149,7 +209,6 @@
 <script> $(function () {
   $("#postcodify_search_button").postcodifyPopUp();
 }); </script>
-
 
 
 

@@ -31,6 +31,25 @@
           and sessionlimit > SYSDATE
     </select>
 
+    <!--  email 찾기  -->
+    <select id="memberEmailSearch" resultType="com.gyemoim.domain.member.MemberVO">
+        select *
+        from Member
+        where name = #{name}
+          and phone = #{phone}
+          and ssn = #{ssn}
+    </select>
+
+    <!--  passwerd 찾기  -->
+    <select id="memberPwdSearch" resultType="com.gyemoim.domain.member.MemberVO">
+        select *
+        from Member
+        where name = #{name}
+          and phone = #{phone}
+          and email = #{email}
+          and ssn = #{ssn}
+    </select>
+
 </mapper>
 
 

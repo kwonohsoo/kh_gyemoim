@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.WebUtils;
 
 import javax.inject.Inject;
@@ -96,5 +97,69 @@ public class MemberController {
       }
     }
     return "member/logout";
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // email 찾기
+  @RequestMapping(value = "/findEmail", method = RequestMethod.GET)
+  public String findEmail(HttpServletRequest request, Model model,
+                          MemberVO memberVO) {
+
+
+    return "/member/findEmail";
+  }
+
+  // email 찾기 실행
+  @RequestMapping(value = "/findResultEmail")
+  public String findResultEmail(HttpServletRequest request, Model model,
+                                @RequestParam(required = true, value = "name") String name,
+                                @RequestParam(required = true, value = "phone") String phone,
+                                @RequestParam(required = true, value = "ssn") String ssn,
+                                MemberVO memberVO) {
+
+    try {
+      memberVO.setName(name);
+      memberVO.setPhone(phone);
+      memberVO.setSsn(ssn);
+      MemberVO memberSearch = service.memberEmailSearch(memberVO);
+      model.addAttribute("memberVO", memberSearch);
+
+    } catch (Exception e) {
+      System.out.println(e.toString());
+      model.addAttribute("msg", "오류가 발생되었습니다.");
+    }
+    return "/member/findResultEmail";
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // password 찾기
+  @RequestMapping(value = "/findPwd", method = RequestMethod.GET)
+  public String findPwd(HttpServletRequest request, Model model, MemberVO vo) {
+
+    return "/member/findPwd";
+  }
+
+  // Password 찾기 실행
+  @RequestMapping(value = "/findResultPwd")
+  public String findResultPwd(HttpServletRequest request, Model model,
+                              @RequestParam(required = true, value = "name") String name,
+                              @RequestParam(required = true, value = "phone") String phone,
+                              @RequestParam(required = true, value = "ssn") String ssn,
+                              MemberVO memberVO) {
+
+    try {
+      memberVO.setName(name);
+      memberVO.setPhone(phone);
+      memberVO.setSsn(ssn);
+      MemberVO memberSearch = service.memberPwdSearch(memberVO);
+      model.addAttribute("memberVO", memberSearch);
+
+    } catch (Exception e) {
+      System.out.println(e.toString());
+      model.addAttribute("msg", "오류가 발생되었습니다.");
+    }
+    return "/member/findResultPwd";
   }
 }
