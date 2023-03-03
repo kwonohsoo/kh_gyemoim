@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-11">
         <div class="title">
-          <h1>공지사항보드${board.getUNo()}</h1>
+          <h1>공지사항</h1>
           <p>계모임의 소식을 전합니다</p>
         </div>
         <div class="container">
@@ -63,7 +63,7 @@
               <textarea class="form-control" name="comm" id="newReplyComm" cols="30" rows="3"
                         placeholder="댓글을 입력해주세요"></textarea>
               <input class="form-control" type="hidden" id="newReplyBid" name="bid" value="${board.getBid()}">
-              <input class="form-control" type="hidden" id="newReplyUNo" name="uNo" value="${board.getUNo()}">
+              <input class="form-control" type="hidden" id="newReplyUNo" name="uno" value="${login.getUno()}">
               <input class="form-control" type="hidden" id="newReplyName" name="name" value="${board.getName()}">
 
               <button type="submit" class="btn btn-primary btn-md px-3 mt-2 me-sm-3" id="replyAddBtn">작성</button>
@@ -107,7 +107,7 @@
   $(function () {
     $("#replyAddBtn").on("click", function () {
       let repBid = "${board.getBid()}";
-      let repUNo = "${board.getUNo()}";
+      let repUno = "${login.getUno()}";
       let repName = "${board.getName()}";
 
       let replytextObj = $("#newReplyComm");
@@ -122,7 +122,7 @@
         },
         data: JSON.stringify({
           "bid": repBid,
-          "uNo": $("#newReplyUNo").val(),
+          "uno": repUno,
           "comm": replytext,
           "name": repName
         }),

@@ -36,7 +36,7 @@
           <c:choose>
             <c:when test="${login!=null}">
               <li class="nav-item welcome"> ${login.name}님 환영합니다!</li>
-              <li class="nav-item"><a class="nav-link" href="/member/mypage?uNo=${login.getUNo()}">마이페이지</a></li>
+              <li class="nav-item"><a class="nav-link" href="/member/mypage">마이페이지</a></li>
               <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/member/logout">로그아웃</a></li>
             </c:when>
             <c:when test="${login==null}">

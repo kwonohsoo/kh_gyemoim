@@ -8,7 +8,7 @@ import java.util.Date;
 public class ReplyVO {
 
   private int bid;
-  private Long uNo;
+  private Integer uno;
   private String name;
   private Date repDate;
   private String comm;

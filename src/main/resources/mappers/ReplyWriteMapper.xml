@@ -7,19 +7,18 @@
 
 
   <insert id="replyWrite">
-    INSERT INTO REPLY(
-    bid
-    , uNo
-    , name
-    , repdate
-    ,comm
-    )
-    VALUES(
-    #{bid}
-    , 1
-    , #{name}
-    , SYSDATE
-    ,#{comm})
+    INSERT INTO REPLY( rno
+                    , bid
+                     , uNo
+                     , name
+                     , repdate
+                     , comm)
+    VALUES ( rno_reply_seq.nextval
+            , #{bid}
+           , #{uno}
+           , #{name}
+           , SYSDATE
+           , #{comm})
   </insert>
 
   <select id="reply" resultType="com.gyemoim.domain.board.ReplyVO">

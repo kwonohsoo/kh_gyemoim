@@ -16,7 +16,7 @@
            <p>계모임의 소식을 전합니다</p>
          </div>
     <form action="/writePost" method="post" enctype="multipart/form-data" id="writeConn">
-    	<input type="hidden" id="write-input-uNo" name="uNo" value="${login.getUNo()}">
+    	<input type="hidden" id="write-input-uNo" name="uNo" value="${login.getUno()}">
 
       <div class="write-attr">
         <label class="attr-name" for="write-input-title">제목</label>
