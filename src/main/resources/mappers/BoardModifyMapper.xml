@@ -18,7 +18,7 @@
 
   <update id="modifyUpdate">
     UPDATE BOARD
-    SET uNo=#{uNo},name=#{name},title=#{title},content=#{content},secret=#{secret}
+    SET uNo=#{uno},name=#{name},title=#{title},content=#{content},secret=#{secret}
     WHERE BID = #{bid}
   </update>
 </mapper>
