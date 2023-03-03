@@ -101,8 +101,8 @@
                        onclick="location.href='/board/list'"/>
                 <input type="button" value="수정하기" class="btn btn-primary btn-lg px-4 me-sm-3"
                        onclick="location.href='/modify?bid=${board.getBid()}'"/>
-                <input type="button" value="삭제하기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                       onclick="location.href='/modify?bid=${board.getBid()}'"/>
+                <input type="button" value="삭제하기" class="btn btn-danger btn-lg px-4 me-sm-3"
+                       onclick="location.href='/delete?bid=${board.getBid()}&uno=${login.uno}'"/>
               </c:when>
               <c:otherwise>
                 <input type="button" value="목록보기" class="btn btn-primary btn-lg px-4 me-sm-3"

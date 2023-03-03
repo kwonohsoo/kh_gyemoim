@@ -7,7 +7,7 @@
 
   <delete id="delete">
     DELETE FROM BOARD
-    WHERE BID = #{bid} AND UNO = #{uNo}
+    WHERE BID = #{bid} AND UNO = #{uno}
   </delete>
 
 </mapper>
