@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @ToString
 public class BoardDeleteDTO {
-  private Long uNo;
+  private Integer uno;
   private int bid;
 
 }

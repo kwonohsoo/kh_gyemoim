@@ -7,6 +7,7 @@ import java.util.Date;
 @Data
 public class ReplyVO {
 
+  private int rno;
   private int bid;
   private Integer uno;
   private String name;

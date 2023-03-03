@@ -8,6 +8,7 @@ import com.gyemoim.service.board.ReplyService;
 import com.gyemoim.service.board.ReplyWriteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,5 +59,25 @@ public class BoardController {
     return "board/read";
   }
 
+  @RequestMapping(value = "/getSearchList")
+  public String getSearchList(Model model, @ModelAttribute("spv") PageVO spv, @RequestParam(value = "nowPage", required = false) String nowPage, @RequestParam(value = "cntPerPage", required = false) String cntPerPage) throws Exception {
+    int total = boardService.searchCountBoard(spv);
+
+    if(cntPerPage == null && nowPage == null) {
+      nowPage = "1";
+      cntPerPage = "10";
+    } else if(nowPage == null) {
+      nowPage = "1";
+    } else if(cntPerPage == null) {
+      cntPerPage = "10";
+    }
+
+    PageVO vo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), spv.getType(), spv.getKeyword());
+
+    model.addAttribute("paging", vo);
+    model.addAttribute("listAll", boardService.searchList(vo));
+
+    return "board/searchList";
+  }
 
 }

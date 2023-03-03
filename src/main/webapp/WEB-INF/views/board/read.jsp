@@ -44,9 +44,11 @@
               <c:when test="${attached.getFileName() != null}">
                 <tr>
                   <td class="text-start AttachedFile">
-                    <b>첨부파일 : </b> <a href="/fileDownload?fileName=${attached.getFileName()}">${attached.getFileName()}<br>
+                    <b>첨부파일 : </b> <a
+                          href="/fileDownload?fileName=${attached.getFileName()}">${attached.getFileName()}<br>
                     <div class="fileImg pt-3"><img id="ImgPreview" name="fileName"
-                                                   src="/fileDownload?fileName=${attached.getFileName()}" class="preview"/>
+                                                   src="/fileDownload?fileName=${attached.getFileName()}"
+                                                   class="preview"/>
                     </div>
                     <input type="hidden" id="write-input-bid" name="fileName" value="${attached.getFileName()}">
                   </a>
@@ -73,9 +75,17 @@
                   <tr>
                     <td class="fw-bold">${reply.getName()}</td>
                     <td>
-                      <div class="reply-contents">${reply.getComm()}</div>
-                      <a class="reply-btn" id="">수정하기</a>
-                      <a class="reply-btn">삭제하기</a>
+                      <input class="reply-contents" id="newModifyComm" name="comm" value="${reply.getComm()}"
+                             <c:if test="${reply.uno ne login.uno}">readonly</c:if>>
+                      <input class="form-control" type="hidden" id="newReplyRno" name="rno" value="${reply.getRno()}">
+
+                      <c:choose>
+                        <c:when test="${reply.uno eq login.uno}">
+                          <button type="submit" id="replyModifyBtn">수정하기</button>
+                          <button type="submit" id="replyDeleteBtn">삭제하기</button>
+                        </c:when>
+                      </c:choose>
+
                     </td>
                   </tr>
                 </c:forEach>
@@ -85,12 +95,20 @@
           </div>
 
           <div class="read-btn-area mt-4 text-center">
-            <input type="button" value="목록보기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                   onclick="location.href='/board/list'"/>
-            <input type="button" value="수정하기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                   onclick="location.href='/modify?bid=${board.getBid()}'"/>
-            <input type="button" value="삭제하기" class="btn btn-primary btn-lg px-4 me-sm-3"
-                   onclick="location.href='/modify?bid=${board.getBid()}'"/>
+            <c:choose>
+              <c:when test="${board.uno eq login.uno}">
+                <input type="button" value="목록보기" class="btn btn-primary btn-lg px-4 me-sm-3"
+                       onclick="location.href='/board/list'"/>
+                <input type="button" value="수정하기" class="btn btn-primary btn-lg px-4 me-sm-3"
+                       onclick="location.href='/modify?bid=${board.getBid()}'"/>
+                <input type="button" value="삭제하기" class="btn btn-danger btn-lg px-4 me-sm-3"
+                       onclick="location.href='/delete?bid=${board.getBid()}&uno=${login.uno}'"/>
+              </c:when>
+              <c:otherwise>
+                <input type="button" value="목록보기" class="btn btn-primary btn-lg px-4 me-sm-3"
+                       onclick="location.href='/board/list'"/>
+              </c:otherwise>
+            </c:choose>
           </div>
 
         </div>
@@ -139,5 +157,86 @@
     });
   });
 
+</script>
+
+<!— 댓글수정 —>
+<script type="text/javascript">
+  $(function () {
+    $("#replyModifyBtn").on("click", function () {
+
+      let repRno = $("#newReplyRno").val();
+
+      let modifytextObj = $("#newModifyComm");
+      let modifytext = modifytextObj.val();
+
+      $.ajax({
+        type: 'post',
+        url: '/replyModify',
+        headers: {
+          "Content-Type": "application/json",
+          "X-HTTP-Method-Override": "POST"
+        },
+        data: JSON.stringify({
+
+          "rno": repRno,
+
+          "comm": modifytext,
+
+        }),
+        success: function (result) {
+          alert("댓글 수정 성공");
+          console.log("result: " + result);
+          if (result == 'SUCCESS') {
+            location.reload();
+          }
+        },
+        error: function () {
+          console.log("댓글 수정 실패");
+        }
+      });
+    });
+  });
+
+</script>
+
+
+<!— 댓글삭제 —>
+<script type="text/javascript">
+  $(function () {
+    $("#replyDeleteBtn").on("click", function () {
+      alert("댓글을 삭제합니다.");
+
+      let repRno = $("#newReplyRno").val();
+
+      /* let replytextObj = $("#newReplyComm");
+       let replytext = replytextObj.val();*/
+
+
+      $.ajax({
+        type: 'post',
+        url: '/replyDelete/',
+        headers: {
+          "Content-Type": "application/json",
+          "X-HTTP-Method-Override": "POST"
+        },
+        data: JSON.stringify({
+
+          "rno": $("#newReplyRno").val()
+
+
+        }),
+        success: function (result) {
+          console.log("result: " + result);
+          if (result == 'SUCCESS') {
+            location.reload();
+            alert("댓글 삭제 성공");
+          }
+        },
+        error: function () {
+          console.log("댓글 삭제 실패");
+        }
+      });
+    });
+  });
 </script>
 <%@ include file="../include/footer.jspf" %>

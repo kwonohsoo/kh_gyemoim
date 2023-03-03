@@ -9,8 +9,12 @@ public interface BoardService {
 
   int countBoard() throws Exception;
 
+  int searchCountBoard(PageVO spv) throws Exception;
+
   List<BoardVO> selectBoard(PageVO vo) throws Exception;
 
-  BoardVO readDetail(int bid);
+  BoardVO readDetail(int bid) throws Exception;
+
+  List<BoardVO> searchList(PageVO spv) throws Exception;
 
 }

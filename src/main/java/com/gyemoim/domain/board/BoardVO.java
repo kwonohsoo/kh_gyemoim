@@ -17,5 +17,4 @@ public class BoardVO {
   private Date writeDate;
   private String secret;
 
-
 }
