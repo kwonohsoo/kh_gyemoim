@@ -1,16 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include
-        file="../include/header.jspf" %>
+<%@ include file="../include/header.jspf" %>
 
+<link href="${path}/resources/dist/css/member/login.css" rel="stylesheet"/>
+<!-- <script src="/test/js/jquery-3.6.0.js"></script> -->
 <!-- Page Content-->
+
 <section class="py-5">
   <div class="container px-5">
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-6">
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="${path}/resources/dist/css/member/login.css" rel="stylesheet"/>
-        <!-- <script src="/test/js/jquery-3.6.0.js"></script> -->
 
         <section class="login">
           <div id="content">
@@ -72,34 +70,32 @@
             </div>
           </div>
         </section>
-
-        <%--                <script type="text/javascript">--%>
-        <%--                    let email = document.querySelector('#email')--%>
-        <%--                    let password = document.querySelector('#password')--%>
-        <%--                    let btn = document.querySelector('#login')--%>
-
-        <%--                    btn.addEventListener('click', () => {--%>
-        <%--                        if(email.value == "") {--%>
-        <%--                            email = email.nextElementSibling--%>
-        <%--                            email.classList.add('warning')--%>
-        <%--                            setTimeout(() => {--%>
-        <%--                                email.classList.remove('warning')--%>
-        <%--                            }, 1500)--%>
-        <%--                        } else if(password.value == "") {--%>
-        <%--                            password = password.nextElementSibling--%>
-        <%--                            password.classList.add('warning')--%>
-        <%--                            setTimeout(() => {--%>
-        <%--                                password.classList.remove('warning')--%>
-        <%--                            }, 1500)--%>
-        <%--                        }--%>
-        <%--                    })--%>
-        <%--                </script>--%>
-
-
-
-        <%--js--%>
-        <%@ include file="../include/footer.jspf" %>
       </div>
     </div>
   </div>
 </section>
+<%--js--%>
+
+<%--                <script type="text/javascript">--%>
+<%--                    let email = document.querySelector('#email')--%>
+<%--                    let password = document.querySelector('#password')--%>
+<%--                    let btn = document.querySelector('#login')--%>
+
+<%--                    btn.addEventListener('click', () => {--%>
+<%--                        if(email.value == "") {--%>
+<%--                            email = email.nextElementSibling--%>
+<%--                            email.classList.add('warning')--%>
+<%--                            setTimeout(() => {--%>
+<%--                                email.classList.remove('warning')--%>
+<%--                            }, 1500)--%>
+<%--                        } else if(password.value == "") {--%>
+<%--                            password = password.nextElementSibling--%>
+<%--                            password.classList.add('warning')--%>
+<%--                            setTimeout(() => {--%>
+<%--                                password.classList.remove('warning')--%>
+<%--                            }, 1500)--%>
+<%--                        }--%>
+<%--                    })--%>
+<%--                </script>--%>
+
+<%@ include file="../include/footer.jspf" %>

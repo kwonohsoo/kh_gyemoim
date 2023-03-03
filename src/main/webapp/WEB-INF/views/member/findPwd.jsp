@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include
-        file="../include/header.jspf" %>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include
+        file="../include/header.jspf" %>
 
 <!-- Page Content-->
 
@@ -99,7 +100,7 @@
                         </div>
                     </form>
 
-                    <%@ include file="../include/footer.jspf" %>
+
                 </div>
             </div>
         </div>
@@ -173,3 +174,5 @@
     }
 
 </script>
+
+<%@ include file="../include/footer.jspf" %>
