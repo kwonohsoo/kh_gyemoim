@@ -20,13 +20,23 @@ public class BoardServiceImpl implements BoardService{
   }
 
   @Override
+  public int searchCountBoard(PageVO spv) throws Exception {
+    return boardDAO.searchCountBoard(spv);
+  }
+
+  @Override
   public List<BoardVO> selectBoard(PageVO vo) throws Exception {
     return boardDAO.selectBoard(vo);
   }
 
   @Override
-  public BoardVO readDetail(int bid) {
+  public BoardVO readDetail(int bid) throws Exception {
+    boardDAO.updateViewCnt(bid);
     return boardDAO.readDetail(bid);
   }
 
+  @Override
+  public List<BoardVO> searchList(PageVO spv) throws Exception {
+    return boardDAO.searchList(spv);
+  }
 }
