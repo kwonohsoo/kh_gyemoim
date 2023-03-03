@@ -8,18 +8,7 @@
     <!--로그인 / login에 대한 DB 작업을 정의한다. id와 pw가 일치하면 사용자 정보를 담고 있는 객체를 반환한다.-->
     <select id="login" resultType="com.gyemoim.domain.member.MemberVO">
 
-      select uNo,
-             email,
-             password,
-             name,
-             ssn,
-             phone,
-             address,
-             bankName,
-             bankAccountNumber,
-             accountHolder,
-             creditRating,
-             interest
+      select *
       from Member
       where email = #{email}
         and password = #{password}

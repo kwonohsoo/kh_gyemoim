@@ -24,7 +24,7 @@ public class BoardWriteServiceImpl implements BoardWriteService {
         MultipartFile UploadFile = dto.getUploadFile();
         UUID uid = UUID.randomUUID();
         String savedName = uid.toString() +"_"+ UploadFile.getOriginalFilename();
-        UploadFile.transferTo(new File("/Users/minjaehong/gyemoim/upload/" + savedName));
+        UploadFile.transferTo(new File("C:\\gyemoim\\upload\\" + savedName));
         if(UploadFile == null) { return; }
         boardWriteDAO.addAttach(savedName);
        // return boardWriteDAO.write(dto);

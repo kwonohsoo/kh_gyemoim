@@ -36,6 +36,11 @@
       <beans:ref bean="loginInterceptor"/>
     </interceptor>
     <interceptor>
+      <mapping path="/notice"/>
+      <mapping path="/member/mypage"/>
+      <beans:ref bean="authInterceptor"/>
+    </interceptor>
+    <interceptor>
       <mapping path="/"/>
       <beans:ref bean="MainInterceptor"/>
     </interceptor>
