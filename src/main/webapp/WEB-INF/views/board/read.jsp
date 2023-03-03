@@ -108,7 +108,7 @@
     $("#replyAddBtn").on("click", function () {
       let repBid = "${board.getBid()}";
       let repUno = "${login.getUno()}";
-      let repName = "${board.getName()}";
+      let repName = "${login.getName()}";
 
       let replytextObj = $("#newReplyComm");
       let replytext = replytextObj.val();
