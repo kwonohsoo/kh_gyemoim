@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /*!
 * Start Bootstrap - Modern Business v5.0.6 (https://startbootstrap.com/template-overviews/modern-business)
 * Copyright 2013-2022 Start Bootstrap
@@ -81,7 +82,8 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: 'Noto Sans KR', sans-serif;
+/*  font-family: var(--bs-body-font-family);*/
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -4856,7 +4858,9 @@ textarea.form-control-lg {
 
 .navbar-collapse {
   flex-basis: 100%;
+/*
   flex-grow: 1;
+*/
   align-items: center;
 }
 
@@ -5043,8 +5047,12 @@ textarea.form-control-lg {
     flex-direction: row;
     display: flex;
     list-style: none;
+    align-items: center;
   }
-
+  .navbar-expand-lg .navbar-nav .welcome{
+  color:white;
+  margin-right:10px;
+  }
   .navbar-expand-lg .navbar-nav .dropdown-menu {
     position: absolute;
   }

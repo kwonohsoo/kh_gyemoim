@@ -51,18 +51,25 @@
   font-size: 1.2rem;
   margin: 0;
 }
-
+@media (max-width: 767.98px) {
+.card-body .pay_count_info p {
+  font-size: .9rem;
+}
+}
 
 .card-body .pay_count_info .bd-l {
   border-left: 1px solid;
 }
 
+.card .stage .stage_char img{
+    width: 30%;
+}
 
 .pay-count-total {
   display: block;
   text-align: center;
-  padding: 0.35em 0.65em;
-  font-size: 1.5em;
+  padding: 0.35em 1em;
+  font-size: 1.3em;
   font-weight: 700;
   line-height: 1;
   color: #fff;

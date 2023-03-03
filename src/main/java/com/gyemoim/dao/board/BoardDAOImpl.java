@@ -20,11 +20,6 @@ public class BoardDAOImpl implements BoardDAO{
   }
 
   @Override
-  public int searchCountBoard(PageVO spv) {
-    return sqlSession.selectOne("BoardMapper.searchCountBoard", spv);
-  }
-
-  @Override
   public List<BoardVO> selectBoard(PageVO vo) {
     return sqlSession.selectList("BoardMapper.selectBoard", vo);
   }
@@ -32,12 +27,6 @@ public class BoardDAOImpl implements BoardDAO{
   @Override
   public BoardVO readDetail(int bid) {
     return sqlSession.selectOne("BoardMapper.readDetail", bid);
-  }
-
-  @Override
-  public List<BoardVO> searchList(PageVO spv) throws Exception {
-    System.out.println("sear dao");
-    return sqlSession.selectList("BoardListMapper.selectSearchList", spv);
   }
 
 }

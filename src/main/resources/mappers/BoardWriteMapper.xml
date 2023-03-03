@@ -9,9 +9,8 @@
     VALUES(BID_BOA_SEQ.NEXTVAL, #{uNo}, #{name}, #{title}, #{content},'공지사항', '0', SYSDATE , #{secret})
   </insert>
 
-  <insert id="addAttach">
+  <insert id="addAttachedName">
     INSERT INTO Attached(bid, fileName)
     VALUES(BID_BOA_SEQ.currval, #{fileName})
   </insert>
-
 </mapper>

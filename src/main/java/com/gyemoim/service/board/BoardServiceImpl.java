@@ -20,11 +20,6 @@ public class BoardServiceImpl implements BoardService{
   }
 
   @Override
-  public int searchCountBoard(PageVO spv) throws Exception {
-    return boardDAO.searchCountBoard(spv);
-  }
-
-  @Override
   public List<BoardVO> selectBoard(PageVO vo) throws Exception {
     return boardDAO.selectBoard(vo);
   }
@@ -32,12 +27,6 @@ public class BoardServiceImpl implements BoardService{
   @Override
   public BoardVO readDetail(int bid) {
     return boardDAO.readDetail(bid);
-  }
-
-  @Override
-  public List<BoardVO> searchList(PageVO spv) throws Exception {
-    System.out.println("search service");
-    return boardDAO.searchList(spv);
   }
 
 }

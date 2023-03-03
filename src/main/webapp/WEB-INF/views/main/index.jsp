@@ -17,12 +17,6 @@
       <div class="col-lg-8 col-xl-7 col-xxl-6 banner-text-area">
         <div class="text-center text-xl-start">
           <h1 class="display-5 fw-bolder text-white mb-2">나만의 목돈마련 솔루션,<br>계모임</h1>
-          <c:choose>
-            <c:when test="${login!=null}">
-              ${login.name}
-              님 환영합니다!<br>
-            </c:when>
-          </c:choose>
           <p class="lead fw-normal text-white-50 mb-4">필요할 때 언제나 간편하게<br>나의 목돈 마련은 계모임에서 시작하세요!</p>
           <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
             <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">스테이지</a>
@@ -34,6 +28,288 @@
     </div>
   </div>
 </section>
+
+
+<!-- stage section-->
+<section class="py-5">
+  <div class="container px-5 my-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-8 col-xl-6">
+        <div class="text-center">
+
+         <c:choose>
+            <c:when test="${login!=null}">
+              <h2 class="fw-bolder"><span class="text-primary">${login.name}</span>님을 위한 스테이지</h2>
+              <p class="lead fw-normal text-muted mb-5">계이득의 다양한 스테이지를 만나보세요.</p>
+            </c:when>
+            <c:when test="${login==null}">
+              <h2 class="fw-bolder">스테이지</h2>
+              <p class="lead fw-normal text-muted mb-5">계이득의 다양한 스테이지를 만나보세요.</p>
+            </c:when>
+          </c:choose>
+        </div>
+      </div>
+    </div>
+    <div class="row gx-5">
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+            <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+
+
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+              <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+
+
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+            <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+
+
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+            <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+
+
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+            <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+
+
+      <!-- card -->
+      <div class="col-lg-4 mb-5">
+        <div class="card shadow border-0">
+          <div class="stage px-3 pt-4 text-center">
+            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
+            <h3 class="pb-3">함께 목돈 만들어요</h3>
+            <div class="stage_char text-center">
+            <img src="/resources/dist/img/gyemoim_character.png" alt="계이득">
+            </div>
+            <ul class="stage_num py-3 px-0">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+            </ul>
+          </div><!-- stage -->
+          <div class="card-body p-4">
+            <div class="pay_count_info">
+              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
+              <div class="bd-l"></div>
+              <p class="px-1">약정금 <strong>1170만원</strong></p>
+            </div>
+          </div>
+          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+            <div class="d-flex align-items-end justify-content-around">
+              <div class="d-flex align-items-center">
+                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
+                  적립 포인트 <span>10,300P</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- card -->
+      <div class="stage-btn"><a class="btn btn-primary btn-lg px-4 me-sm-3" href="#">스테이지 모두보기</a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonial section-->
+<div class="py-5 bg-light">
+  <div class="container px-5 my-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-10 col-xl-7">
+        <div class="text-center">
+          <div class="fs-4 mb-4 fst-italic">친구들끼리 여행 가려고 돈 모으기 시작했어요!<br>여행계나 여행적금으로 계이득 강추입니다!</div>
+          <div class="d-flex align-items-center justify-content-center">
+            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..."/>
+            <div class="fw-bold">
+              민재홍
+              <span class="fw-bold text-primary mx-1">/</span>
+              팀장, 계이득
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Features section-->
 <section class="py-5" id="features">
   <div class="container px-5 my-5">
@@ -72,258 +348,7 @@
     </div>
   </div>
 </section>
-<!-- Testimonial section-->
-<div class="py-5 bg-light">
-  <div class="container px-5 my-5">
-    <div class="row gx-5 justify-content-center">
-      <div class="col-lg-10 col-xl-7">
-        <div class="text-center">
-          <div class="fs-4 mb-4 fst-italic">친구들끼리 여행 가려고 돈 모으기 시작했어요!<br>여행계나 여행적금으로 계모임 강추입니다!</div>
-          <div class="d-flex align-items-center justify-content-center">
-            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..."/>
-            <div class="fw-bold">
-              민재홍
-              <span class="fw-bold text-primary mx-1">/</span>
-              팀장, 계모임
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-
-<!-- stage section-->
-<section class="py-5">
-  <div class="container px-5 my-5">
-    <div class="row gx-5 justify-content-center">
-      <div class="col-lg-8 col-xl-6">
-        <div class="text-center">
-          <h2 class="fw-bolder">스테이지</h2>
-          <p class="lead fw-normal text-muted mb-5">아임인의 다양한 스테이지를 만나보세요.</p>
-        </div>
-      </div>
-    </div>
-    <div class="row gx-5">
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-
-
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-
-
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-
-
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-
-
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-
-
-      <!-- card -->
-      <div class="col-lg-4 mb-5">
-        <div class="card shadow border-0">
-          <div class="stage px-3 pt-4 text-center">
-            <div class="badge bg-danger bg-gradient rounded-pill mb-2">HOT!</div>
-            <h3 class="pb-3">함께 목돈 만들어요</h3>
-            <ul class="stage_num py-3 px-0">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-            </ul>
-          </div><!-- stage -->
-          <div class="card-body p-4">
-            <div class="pay_count_info">
-              <p class="px-1">이율(세후) <strong>9.81%</strong></p>
-              <div class="bd-l"></div>
-              <p class="px-1">약정금 <strong>1170만원</strong></p>
-            </div>
-          </div>
-          <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-            <div class="d-flex align-items-end justify-content-around">
-              <div class="d-flex align-items-center">
-                <div class="pay-count-total pay-count-total bg-primary bg-gradient rounded-pill mb-2">총
-                  적립 포인트 <span>10,300P</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> <!-- card -->
-      <div class="stage-btn"><a class="btn btn-primary btn-lg px-4 me-sm-3" href="#">스테이지 모두보기</a></div>
-    </div>
-  </div>
-</section>
 
 
 <!-- Call to action-->

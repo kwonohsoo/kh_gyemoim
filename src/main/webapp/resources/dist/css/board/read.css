@@ -1,0 +1,21 @@
+td.read-detail {
+    display: flex;
+    column-gap: 30px;
+    background-color: #eee;
+    justify-content: flex-start;
+    padding: 0.7rem;
+  font-size: 14px;
+}
+
+td.read-content {
+    text-align: left;
+}
+
+td.AttachedFile .fileImg img{
+    width: 150px;
+    box-shadow: 2px 2px 4px 1px #bababa;
+}
+td.AttachedFile {
+    display: flex;
+    column-gap: 15px;
+}

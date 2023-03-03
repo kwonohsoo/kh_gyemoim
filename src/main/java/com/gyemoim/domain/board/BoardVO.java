@@ -8,7 +8,7 @@ import java.util.Date;
 public class BoardVO {
 
   private int bid;
-  private int uNo;
+  private Long uNo;
   private String type;
   private String name;
   private String title;
