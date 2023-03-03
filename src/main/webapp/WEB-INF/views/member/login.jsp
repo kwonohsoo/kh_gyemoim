@@ -14,8 +14,8 @@
           <div id="content">
             <div class="login_wrap">
               <div class="login_wrap_inner">
-                <h2 class="log_logo">계모임</h2>
-                <h3 class="simp_log_ttl">로그인</h3>
+                <h1 class="fw-bolder">회원가입</h1>
+                <p>계모임 가입으로 목돈 모으기 성공! </p>
 
                 <form
                         id="loginForm"

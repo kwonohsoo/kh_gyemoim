@@ -17,7 +17,7 @@
 }
 
 .login_wrap_inner h2.log_logo {
-    background: url("../img/gye_img.png") center / 100% auto no-repeat;
+    background: url("/resources/dist/img/gyemoim_character.png") center / 100% auto no-repeat;
     display: block;
     height: 65px;
     margin: 0 auto;
