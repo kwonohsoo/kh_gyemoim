@@ -54,7 +54,7 @@
   </beans:bean>
 
   <beans:bean id="uploadPath" class="java.lang.String">
-    <beans:constructor-arg value="/Users/minjaehong/gyemoim/upload">
+    <beans:constructor-arg value="/Users/minjaehong/">
     </beans:constructor-arg>
   </beans:bean>
   <!-- 첨부파일 끝 -->
