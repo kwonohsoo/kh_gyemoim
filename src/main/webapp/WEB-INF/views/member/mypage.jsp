@@ -6,42 +6,56 @@
 
 <body>
 <!-- Page Content-->
-<section class="py-5">
+<!--찬희수정 -->
+<section id="mypage" class="py-5">
   <div class="container px-5 my-5">
-    <div class="row gx-5">
+    <div class="row gx-5 fcg-3">
       <div class="col-lg-3">
 
         <div>
           <!-- Sidebar-->
           <div class="ms-3">
-            <div class="border-end bg-white">
-              <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+            <div class="bg-white">
+              <div class="sidebar-heading border-bottom bg-light pt-4">
+                <div class="sidebar-myInfo">
+                  <img class="img-fluid rounded-circle" src="/resources/dist/img/hiyoko0305.png" alt="...">
+                  <div class="infoText">
+                    <div class="fw-bold">${my.name}님의</div>
+                    <div class="text-muted">마이페이지</div>
+                  </div>
+                </div>
+              </div>
               <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">나의 스테이지</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 " href="#!" >나의 포인트</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 checked" href="#!">개인정보수정</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">나의 상담내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">로그아웃</a>
               </div>
             </div>
-          </div> <!--border-end bg-white-->
-        </div> <!-- ms-3-->
-        <!--sidebar 여기까지-->
+          </div> <!—border-end bg-white—>
+        </div> <!— ms-3—>
+        <!—sidebar 여기까지—>
       </div>
 
 
-      <!-- col-lg-3의 자식-->
-      <div class="col-lg-9">
-        <article><!--본문 시작-->
-          <!-- Post title-->
-          <h1 class="fw-bolder mb-1">마이 페이지</h1>
-          <!-- 일반회원 기본 노출 -->
+      <!— col-lg-3의 자식—>
+      <div class="col-lg-7">
+        <article><!—본문 시작—>
+          <!— Post title—>
+          <div class="title">
+            <h1>개인정보수정</h1>
+            <p>${my.name}님의 소중한 정보</p>
+          </div>
+          <!— 일반회원 기본 노출 —>
           <form action="update" method="post">
-            <!--마이페이지-->
+            <!—마이페이지—>
             <div id="personInfo">
-              <!--테이블 형식으로 보여줄거니까 table시작-->
-              <table class="person-tb">
+              <!—테이블 형식으로 보여줄거니까 table시작—>
+              <table class="person-tb table">
+
+                <!— 찬희 수정 끝—>
+
                 <tbody>
 
                 <tr>
@@ -113,6 +127,7 @@
                            id="ssn"
                            value="${my.ssn}"
                            readonly="readonly"
+                           class="form-control"
                            style="background-color: #e9ecef;border: 1px solid #ced4da;">
 
                   </td>
@@ -121,7 +136,7 @@
                 <tr>
                   <th>휴대폰</th>
                   <td>
-                    <input type="text" id="phone" name="phone" value="${my.phone}">
+                    <input type="text" id="phone" name="phone" class="form-control"value="${my.phone}">
                   </td>
                 </tr>
 
@@ -129,7 +144,7 @@
                   <th>은행</th>
                   <td>
                     <div>
-                      <select name="bankName" class="bankName" data-type="${my.bankName}">
+                      <select name="bankName" class="bankName form-control" data-type="${my.bankName}">
                         <option value="">은행명</option>
                         <option value="KEB하나">KEB하나</option>
                         <option value="SC제일">SC제일</option>
@@ -143,9 +158,10 @@
                       <input type="text"
                              name="bankAccountNumber"
                              id="bankAccountNumber"
+                             class="form-control"
                              value="${my.bankAccountNumber}"
                              placeholder="'-'를 빼고 입력해주세요."
-                             style="width:70%" ;>
+                             >
                     </div>
                   </td>
                 </tr>
@@ -202,30 +218,33 @@
                         <tr>
                             <th>주소</th>
                             <td>
-                                <!--<div class="text-start mb-5 passbox">-->
+                                <div style="display: flex;">
                                     <input type="text"
                                             name="addresscode"
                                             value="${my.addresscode}"
-                                            class="postcodify_postcode5"
-                                            placeholder="우편번호">
-                                <!--</div>-->
+                                            class="postcodify_postcode5 form-control"
+                                            placeholder="우편번호"
+                                            style="flex: 8;">
+                                    <button type="button"
+                                            class="btn btn-primary"
+                                            id="postcodify_search_button"
+                                            style="flex: 1; margin-left: 10px;">
+                                            검색
+                                    </button>
+                                  </div>
                                 <div>
                                 <span class="input_area">
                                     <input type="text"
                                             name="address"
                                             value="${my.address}"
-                                            class="postcodify_address"
+                                            class="postcodify_address form-control"
                                             placeholder="주소">
                                 </span>
-                                    <button type="button"
-                                            class="button-request"
-                                            id="postcodify_search_button">
-                                            <span>검색</span>
-                                    </button>
                                 </div>
                                 <div>
                                    <input type="text"
                                           name="addressdetail"
+                                          class="form-control"
                                           value="${my.addressdetail}"
                                           placeholder="상세주소 작성">
                                 </div>

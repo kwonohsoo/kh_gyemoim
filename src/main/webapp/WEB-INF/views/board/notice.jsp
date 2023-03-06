@@ -8,26 +8,28 @@
 
 <section class="py-5">
   <div class="container px-5">
-    <div class="row">
-      <div class="col-11">
-        <div class="search-container">
-          <div class="title">
-            <h1>공지사항</h1>
-            <p>계모임의 소식을 전합니다</p>
-          </div>
-          <%-- 제목/내용/작성자 기준으로 게시글 검색하는 코드 --%>
-          <div class="search-box">
-            <form name="search_form" action="/board/getSearchList">
-              <select name="type">
-                <option selected value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="name">작성자</option>
-              </select>
-              <label for="search-input"></label><input type="text" id="search-input" name="keyword" placeholder="검색어를 입력하세요." />
-              <button id="search-button" onclick="formSubmit()">검색</button>
-            </form>
-          </div>
+    <div class="row justify-content-center">
+      <div class="col-11 ">
+        <div class="title">
+          <h1>커뮤니티</h1>
+          <p>계모임의 소식을 전합니다</p>
         </div>
+
+        <!-- 검색 시작 -->
+        <div class="search-container row justify-content-center ">
+          <%-- 제목/내용/작성자 기준으로 게시글 검색하는 코드 --%>
+          <form class="col-8 search-box" name="search_form" action="/board/getSearchList">
+            <select name="type" class="search-item">
+              <option selected value="title">제목</option>
+              <option value="content">내용</option>
+              <option value="name">작성자</option>
+            </select>
+            <input class="form-control search-item" type="text" id="search-input" name="keyword" placeholder="검색어를 입력하세요." />
+            <button id="search-button" onclick="formSubmit()" class="btn btn-primary search-item">검색</button>
+          </form>
+        </div>
+        <!-- 검색 끝 -->
+
         <table class="table table-hover">
           <colgroup>
             <col width="10%"/>
@@ -37,15 +39,15 @@
             <col width="10%"/>
           </colgroup>
           <thead>
-          <th>글번호</th>
+          <th class="text-center">글번호</th>
           <th>제목</th>
-          <th>작성자</th>
-          <th>작성일</th>
-          <th>조회수</th>
+          <th class="text-center">작성자</th>
+          <th class="text-center">작성일</th>
+          <th class="text-center">조회수</th>
           </thead>
           <c:forEach var="item" varStatus="status" items="${list}">
             <tr>
-              <td>${(paging.total - status.index) - ((paging.nowPage - 1) * 10)}</td>
+              <td class="text-center">${(paging.total - status.index) - ((paging.nowPage - 1) * 10)}</td>
 
               <c:choose>
                 <c:when test="${item.secret eq 'S'}">
@@ -69,9 +71,9 @@
                 </c:otherwise>
               </c:choose>
 
-              <td>${item.getName()}</td>
-              <td><fmt:formatDate value="${item.getWriteDate()}" pattern="yyyy-MM-dd"/></td>
-              <td>${item.getViews()}</td>
+              <td class="text-center">${item.getName()}</td>
+              <td class="text-center"><fmt:formatDate value="${item.getWriteDate()}" pattern="yyyy-MM-dd"/></td>
+              <td class="text-center">${item.getViews()}</td>
             </tr>
           </c:forEach>
         </table>
@@ -126,4 +128,3 @@
 </script>
 
 <%@ include file="../include/footer.jspf" %>
-

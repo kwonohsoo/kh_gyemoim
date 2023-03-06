@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-11">
         <div class="title">
-          <h1>공지사항</h1>
+          <h1>커뮤니티</h1>
           <p>계모임의 소식을 전합니다</p>
         </div>
         <div class="container">
