@@ -11,5 +11,6 @@ public interface BoardModifyDAO {
   BoardVO modify(int bid);
   AttachedVO attached(int bid);
 
-  public void modifyUpdate(BoardModifyDTO dto) throws Exception;
+  void modifyUpdate(BoardModifyDTO dto) throws Exception;
+  void addAttachedUpdate(BoardModifyDTO dto) throws Exception;
 }

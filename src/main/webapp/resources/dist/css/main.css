@@ -82,3 +82,17 @@
   display: flex;
   justify-content: center;
 }
+
+.stage_num li.egg{
+    border: 0;
+    margin-top: -3px;
+}
+.stage_num li.egg img{
+    width: 100%;
+    vertical-align: middle;
+}
+.all_attend{
+    font-weight: 500 !important;
+    color: black !important;
+    font-size: 0.875em !important;
+}

@@ -18,6 +18,6 @@ public class BoardModifyDTO {
     private Date writeDate;
     private String secret;
     private MultipartFile uploadFile;
-
+    private String fileName;
 
 }

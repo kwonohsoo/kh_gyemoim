@@ -38,11 +38,12 @@ public class BoardModifyController {
     //글 수정하기
     @RequestMapping(value = "/modifyPost" ,method = RequestMethod.POST)
     public String modifyPost(BoardModifyDTO dto, RedirectAttributes request) throws Exception {
-        System.out.println("들어오셨나요?");
+        System.out.println("들어오셨나요? " + dto);
         boardModifyService.modifyUpdate(dto);
         request.addFlashAttribute("message","Sucess!");
         return "redirect:/board/list";
     }
+
 
     // 원래 첨부파일 삭제하기
     @RequestMapping(value = "/removeImage" ,method = RequestMethod.POST)
