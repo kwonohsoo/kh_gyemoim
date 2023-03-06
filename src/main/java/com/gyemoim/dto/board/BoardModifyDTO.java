@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 public class BoardModifyDTO {
     private int bid;
-    private long uNo;
+    private Integer uno;
     private String name;
     private String title;
     private String content;
