@@ -9,7 +9,6 @@
   <div class="container px-5">
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-6">
-
         <section class="login">
           <div id="content">
             <div class="login_wrap">
@@ -17,7 +16,6 @@
                 <h2 class="log_logo">imin</h2>
                 <h1 class="fw-bolder">로그인</h1>
                 <p>계모임 가입으로 목돈 모으기 성공! </p>
-
                 <form
                         id="loginForm"
                         method="post"
@@ -47,7 +45,7 @@
                   </fieldset>
 
                   <div class="login_btns_wrap">
-                    <button class="login_btn" id="login" type="submit">
+                    <button class="login_btn" id="login" type="submit" style="width: 400px" style="border:none">
                       로그인
                     </button>
                   </div>

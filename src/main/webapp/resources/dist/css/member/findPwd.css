@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.row.gx-5.justify-content-center {
+    justify-content: center !important;
+    width: 100%;
+    align-items: center;
+}
+
 .login_wrap {
     left: 50%;
     margin-left: -250px;
@@ -9,14 +15,26 @@
 }
 
 
+.login_wrap_inner {
+    left: 50%;
+    margin-left: -200px;
+    position: relative;
+    top: 0;
+    width: 400px;
+}
+
 .login_wrap_inner h2.log_logo {
-    background: url("../img/common/logo.png") center / 100% auto no-repeat;
+    background: url("/resources/dist/img/gyemoim_character.png") center / 100% auto no-repeat;
     display: block;
     height: 65px;
     margin: 0 auto;
     overflow: hidden;
     text-indent: -20000px;
     width: 150px;
+}
+
+.login_wrap_inner h2.log_logo.small {
+    width: 149px;
 }
 
 .login_btns_wrap a {

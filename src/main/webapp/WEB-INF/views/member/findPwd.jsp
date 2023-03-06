@@ -1,114 +1,111 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@ include
         file="../include/header.jspf" %>
+<link
+        href="${path}/resources/dist/css/member/findEmail.css"
+        rel="stylesheet"
+        type="text/css"
+/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 <!-- Page Content-->
+<section class="py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
 
-<form commandName="memberVO" id="createForm" action="${path}/member/findResultPwd" method="post">
+                <div id="content">
+                    <div class="login_wrap">
+                        <form commandName="memberVO" id="createForm" action="${path}/member/findResultPwd"
+                              method="post">
 
-    <section class="py-5">
-        <div class="container px-5">
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-6">
-                    <meta charset="UTF-8"/>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                    <link
-                            href="${path}/resources/dist/css/member/findPwd.css"
-                            rel="stylesheet"
-                            type="text/css"
-                    />
-                    <form
-                            commandName="memberVO"
-                            id="createForm"
-                            action="${path}/member/findResultPwd"
-                            method="post"
-                    >
-                        <div id="content">
-                            <div class="login_wrap" style="padding-bottom: 145px">
-                                <div class="login_wrap_inner">
-                                    <h2 class="log_logo small">계모임</h2>
-                                    <h1 class="fw-bolder">비밀번호 찾기</h1>
-<%--                                    <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
-                                    <fieldset class="find_pw_field">
-                                        <dl class="certiArea">
-                                            <dt>이메일</dt>
-                                            <dd>
-                                                <input
-                                                        id="email"
-                                                        name="email"
-                                                        placeholder="가입 시 등록한 이메일을 입력해 주세요."
-                                                        maxlength="25"
-                                                        type="text"
-                                                />
-                                            </dd>
-                                        </dl>
-                                        <dl class="certiArea">
-                                            <dt>이름</dt>
-                                            <dd>
-                                                <input
-                                                        id="name"
-                                                        name="name"
-                                                        placeholder="이름을 입력해 주세요."
-                                                        maxlength="10"
-                                                        type="text"
-                                                />
-                                            </dd>
-                                        </dl>
-                                        <dl>
-                                            <dt>생년월일</dt>
-                                            <dd>
-                                                <input
-                                                        id="ssn"
-                                                        name="ssn"
-                                                        placeholder="생년월일 6자리를 입력해 주세요."
-                                                        type="text"
-                                                />
-                                            </dd>
-                                        </dl>
-                                        <dl class="certiArea">
-                                            <dt>휴대폰</dt>
-                                            <dd>
-                                                <input
-                                                        class="phone_num"
-                                                        id="phone"
-                                                        name="phone"
-                                                        placeholder="휴대폰 번호를 ‘-’ 없이 입력해 주세요."
-                                                        maxlength="14"
-                                                        type="text"
-                                                />
-                                            </dd>
-                                        </dl>
-                                    </fieldset>
+                            <div id="findIdArea1" class="login_wrap_inner">
+
+                                <h2 class="log_logo">계모임</h2>
+                                <h1 class="fw-bolder">비밀번호 찾기</h1>
+                                <%--                                    <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
+                                <fieldset class="find_field">
+                                    <dl>
+                                        <dt>이메일</dt>
+                                        <dd>
+                                            <input
+                                                    id="email"
+                                                    name="email"
+                                                    placeholder="가입 시 등록한 이메일을 입력해 주세요."
+                                                    maxlength="25"
+                                                    type="text"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>이름</dt>
+                                        <dd>
+                                            <input
+                                                    id="name"
+                                                    name="name"
+                                                    placeholder="이름을 입력해 주세요."
+                                                    maxlength="10"
+                                                    type="text"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>생년월일</dt>
+                                        <dd>
+                                            <input
+                                                    id="ssn"
+                                                    name="ssn"
+                                                    placeholder="주민등록번호를 입력해 주세요."
+                                                    type="text"
+                                            />
+                                        </dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>휴대폰</dt>
+                                        <dd>
+                                            <input
+                                                    id="phone"
+                                                    name="phone"
+                                                    placeholder="휴대폰 번호를 ‘-’ 없이 입력해 주세요."
+                                                    maxlength="14"
+                                                    type="text"
+                                            />
+                                        </dd>
+                                    </dl>
+                                </fieldset>
+
+                                <div class="login_btns_wrap">
+                                    <a
+                                            class="login"
+                                            id="findIdBtn"
+                                            onclick="fnSubmit(); return false;"
+                                            href="javascript:void(0)"
+                                    >확인</a
+                                    >
                                 </div>
                                 <div class="findidpw_btns_wrap">
-                                    <div class="login_btns_wrap">
-                                        <a
-                                                class="login"
-                                                id="findIdBtn"
-                                                onclick="fnSubmit(); return false;"
-                                                href="javascript:void(0)"
-                                        >확인</a
-                                        >
-                                    </div>
                                     <p><a href="<%=request.getContextPath()%>/member/findEmail">이메일 찾기</a></p>
                                     <p><a href="<%=request.getContextPath()%>/member/login">로그인</a></p>
                                 </div>
+
                             </div>
-                        </div>
-                    </form>
-
-
+                        </form>
+                    </div>
                 </div>
+
+
             </div>
-        </div>
-    </section>
-</form>
+        </div> <!--row -->
+    </div> <!--container-->
+</section>
+
 
 <%--javascript--%>
+
 
 <script>
 
@@ -146,7 +143,7 @@
         }
 
         if ($("#ssn").val() == null || $("#ssn").val() == "") {
-            alert("생년월일를 입력해주세요.");
+            alert("주민등록번호를 입력해주세요.");
             $("#phone").focus();
 
             return false;
@@ -172,6 +169,7 @@
 
             return false;
         }
+
     }
 
 </script>

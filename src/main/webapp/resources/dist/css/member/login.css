@@ -144,6 +144,7 @@
 .login_btns_wrap a.login_btn, .login_btns_wrap button.login_btn{
     background: #004dc1;
     cursor: pointer;
+    width: 400px;
 }
 
 .login_btns_wrap a.join {
