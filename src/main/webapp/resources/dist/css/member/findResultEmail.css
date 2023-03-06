@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.justify-content-center {
+    justify-content: center !important;
+    width: 100%;
+    align-items: center;
+}
+
 .login_wrap {
     left: 50%;
     margin-left: -250px;
@@ -8,14 +14,26 @@
     width: 500px;
 }
 
+.login_wrap_inner {
+    left: 50%;
+    margin-left: -200px;
+    position: relative;
+    top: 0;
+    width: 500px;
+}
+
 .login_wrap_inner h2.log_logo {
-    background: url("../img/common/logo.png") center / 100% auto no-repeat;
+    background: url("/resources/dist/img/gyemoim_character.png") center / 100% auto no-repeat;
     display: block;
     height: 65px;
     margin: 0 auto;
     overflow: hidden;
     text-indent: -20000px;
     width: 150px;
+}
+
+.login_wrap_inner h2.log_logo.small {
+    width: 149px;
 }
 
 .login_btns_wrap a {
@@ -98,8 +116,32 @@
     color: #000000;
     font-size: 17px;
     font-weight: 500;
-    height: 100px;
-    padding: 0 200px;
+    padding: 20px 0 10px;
     width: 100%;
     text-align: center;
+}
+
+.login_frm_guide {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.login_frm_guide ul {
+    margin: 0 auto;
+    width: 300px;
+    overflow: hidden;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.login_frm_guide ul li {
+    float: left;
+    color: #000000;
+}
+
+.login_frm_guide ul li a {
+    color: #000000;
+    font-size: 15px;
 }
