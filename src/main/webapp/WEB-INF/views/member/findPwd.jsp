@@ -26,7 +26,7 @@
                             <div id="findIdArea1" class="login_wrap_inner">
 
                                 <h2 class="log_logo">계모임</h2>
-                                <h1 class="fw-bolder">비밀번호 찾기</h1>
+                                <h1 class="fw-bolder text-center">비밀번호 찾기</h1>
                                 <%--                                    <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
                                 <fieldset class="find_field">
                                     <dl>

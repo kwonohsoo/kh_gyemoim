@@ -14,8 +14,8 @@
             <div class="login_wrap">
               <div class="login_wrap_inner">
                 <h2 class="log_logo">imin</h2>
-                <h1 class="fw-bolder">로그인</h1>
-                <p>계모임 가입으로 목돈 모으기 성공! </p>
+                <h1 class="fw-bolder text-center">로그인</h1>
+                <p class="text-center">계모임 가입으로 목돈 모으기 성공! </p>
                 <form
                         id="loginForm"
                         method="post"

@@ -13,7 +13,7 @@
             <div class="col-lg-6">
                 <div id="findIdArea1" class="login_wrap_inner">
                     <h2 class="log_logo">계모임</h2>
-                    <h1 class="fw-bolder">이메일을 확인해 주세요.</h1>
+                    <h1 class="fw-bolder text-center">이메일을 확인해 주세요.</h1>
                     <fieldset class="find_field">
                         <c:choose>
                             <c:when test="${empty memberVO}">

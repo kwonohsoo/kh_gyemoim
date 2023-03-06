@@ -78,7 +78,7 @@
                   <input type="text" name="addresscode" class="postcodify_postcode5" placeholder="우편번호 검색">
                   <button type="button" class="btn btn-primary btn-md px-4 button-request" id="postcodify_search_button"><span>검색</span></button>
                 </div>
-                <span class="input_area"><input type="text" name="address" class="postcodify_address" placeholder="우편주소 검색"></span>
+                <span class="input_area"><input type="text" name="address" class="postcodify_address my-1" placeholder="우편주소 검색"></span>
                 <span class="input_area"><input type="text" name="addressdetail" placeholder="상세주소 입력"></span>
               </div>
             </div>

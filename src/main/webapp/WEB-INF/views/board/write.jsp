@@ -30,7 +30,7 @@
         <label class="attr-name" for="write-input-writer">공개설정</label>
         <div class="secretF-9">
         <div class="secret-detail">
-       <input type="radio" name="secret" id="write-cs_open" value="P" class="radio" required/>
+       <input type="radio" name="secret" id="write-cs_open" value="P" class="radio" checked required/>
         <label class="attr-name" for="write-cs_open">공개</label>
         </div>
         <div class="secret-detail">

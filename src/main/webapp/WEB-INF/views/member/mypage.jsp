@@ -4,7 +4,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<body>
+
 <!-- Page Content-->
 <!--찬희수정 -->
 <section id="mypage" class="py-5">
@@ -255,7 +255,7 @@
               </table>
               <div class="btnArea join-footer py-5">
                 <button type="submit" class="btn btn-primary btn-lg px-4 me-sm-3">수정하기</button>
-                <button="button" onclick="checkDelete()" class="btn btn-primary btn-lg px-4 me-sm-3" >탈퇴하기</button>
+                <button type="button" onclick="checkDelete()" class="btn btn-primary btn-lg px-4 me-sm-3" >탈퇴하기</button>
               </div>
             </div>
           </form>
@@ -302,8 +302,7 @@
 
 <!-- 주소 API 스크립트 -->
 <!-- jQuery와 Postcodify를 로딩한다 -->
-<script
-="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
 
