@@ -30,7 +30,8 @@
                             <div class="login_wrap">
                                 <div id="findIdArea1" class="login_wrap_inner">
                                     <h2 class="log_logo">계모임</h2>
-                                    <h3 class="simp_log_ttl">이메일 찾기</h3>
+                                    <h1 class="fw-bolder">이메일 찾기</h1>
+<%--                                    <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
                                     <fieldset class="find_field">
                                         <dl>
                                             <dt>이름</dt>

@@ -9,7 +9,7 @@
   <insert id="replyWrite">
     INSERT INTO REPLY( rno
                     , bid
-                     , uNo
+                     , uno
                      , name
                      , repdate
                      , comm)

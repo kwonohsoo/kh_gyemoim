@@ -26,7 +26,8 @@
 
                 <div class="p-51">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-2">비밀번호를 확인해주세요.</h1><br><br>
+                        <h1 class="fw-bolder">비밀번호를 확인해 주세요.</h1>
+<%--                        <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
                         <br/><br/>
                         <c:choose>
                             <c:when test="${empty memberVO}">

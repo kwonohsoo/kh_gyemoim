@@ -31,7 +31,8 @@
                             <div class="login_wrap" style="padding-bottom: 145px">
                                 <div class="login_wrap_inner">
                                     <h2 class="log_logo small">계모임</h2>
-                                    <h3 class="log_subttl">비밀번호 찾기</h3>
+                                    <h1 class="fw-bolder">비밀번호 찾기</h1>
+<%--                                    <p>계모임 가입으로 목돈 모으기 성공! </p>--%>
                                     <fieldset class="find_pw_field">
                                         <dl class="certiArea">
                                             <dt>이메일</dt>
