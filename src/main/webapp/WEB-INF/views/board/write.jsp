@@ -9,10 +9,10 @@
 
 <section class="py-5">
   <div class="container px-5">
-    <div class="row">
-     <div class=" col-11">
+    <div class="row justify-content-center">
+          <div class="col-11 ">
        <div class="title text-center mb-3">
-           <h1>공지사항 글쓰기</h1>
+           <h1>커뮤니티 글쓰기</h1>
            <p>계모임의 소식을 전합니다</p>
          </div>
     <form action="/writePost" method="post" enctype="multipart/form-data" id="writeConn">

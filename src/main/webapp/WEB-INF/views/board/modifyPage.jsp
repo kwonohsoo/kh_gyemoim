@@ -10,10 +10,10 @@
 
 <section class="py-5">
   <div class="container px-5">
-    <div class="row">
-      <div class=" col-11">
+    <div class="row justify-content-center">
+          <div class="col-11 ">
         <div class="title text-center mb-3">
-          <h1>수정페이지</h1>
+          <h1>커뮤니티 수정하기</h1>
           <p>계모임의 소식을 전합니다</p>
         </div>
         <form action="/modifyPost" method="post" enctype="multipart/form-data">
@@ -23,12 +23,11 @@
 
           <div class="write-attr">
             <label class="attr-name" for="write-input-title">제목</label>
-            <input type="text" id="write-input-title" name="title" value="${board.getTitle()}" required>
+            <input type="text" id="write-input-title" name="title" value="${board.getTitle()}" class="form-control" required>
           </div>
           <div class="write-attr">
             <label class="attr-name" for="write-input-writer">작성자</label>
-            <input type="text" id="write-input-writer" name="name" value="${board.getName()}" placeholder="제목을 입력해주세요"
-                   required>
+            <input type="text" id="write-input-writer" name="name" value="${board.getName()}" class="form-control" readonly>
           </div>
 
           <div class="secret-attr">
@@ -65,11 +64,25 @@
           <div class="write-attr Attached">
             <label class="attr-name" for="upload" multipart>첨부파일</label>
             <div class="attr-img">
+<!--
+   <c:choose>
+      <c:when test="${attached.getFileName() eq ''}">
+    <input type="file" class="" name="UploadFile" value="${attached.getFileName()}" id="theFile">
+        </c:when>
+      <c:when test="${attached.getFileName() ne ''}">
+       <img id="ImgPreview" name="fileName" src="/fileDownload?fileName=${attached.getFileName()}"
+                         class="preview it"/>
+                    <input type="button" id="removeImage" value="X" class="btn-rmv rmv"/>
+    </c:when>
+        </c:choose>
+-->
+    <input type="file" class="d-none" name="UploadFile" value="${attached.getFileName()}" id="theFile" onclick="imgClick()">
+    <div id="theImg" class="d-none">
+    <img id="ImgPreview" name="fileName" src="/fileDownload?fileName=${attached.getFileName()}" class="preview it" onchange="imgChange(this.src)" />
+    <input type="button" id="removeImage" value="X" class="btn-rmv rmv"/>
+    </div>
 
-              <input type="file" class="" name="UploadFile" value="${attached.getFileName()}" id="theFile">
-              <img id="ImgPreview" name="fileName" src="/fileDownload?fileName=${attached.getFileName()}"
-                   class="preview"/>
-              <input type="button" id="removeImage" value="X" class="btn-rmv"/>
+
             </div>
           </div>
           <div class="write-btn-area text-center">
@@ -83,9 +96,8 @@
 </section>
 
 
-<script>
-
-  <!--첨부파일 -->
+<script type="text/javascript">
+  <!--첨부파일 이미지 미리보기-->
   function readURL(input, imgControlName) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -109,6 +121,37 @@
     $('.preview').removeClass('it');
     $('.btn-rmv').removeClass('rmv');
   });
+
+  <!--첨부파일 여부 확인해서 class 추가-->
+if('${attached.getFileName()}' === ''){
+    document.getElementById('theFile').classList.remove('d-none');
+    document.getElementById('theFile').classList.add('d-block');
+    document.getElementById('theImg').classList.remove('d-block');
+    document.getElementById('theImg').classList.add('d-none');
+}else{
+    document.getElementById('theFile').classList.remove('d-block');
+    document.getElementById('theFile').classList.add('d-none');
+    document.getElementById('theImg').classList.remove('d-none');
+    document.getElementById('theImg').classList.add('d-block');
+}
+
+const removeImage = document.getElementById('removeImage');
+removeImage.addEventListener('click', function(){
+      document.getElementById('theFile').classList.remove('d-none');
+      document.getElementById('theFile').classList.add('d-block');
+      document.getElementById('theImg').classList.remove('d-block');
+      document.getElementById('theImg').classList.add('d-none');
+});
+
+function imgClick() {
+    const imgSrc = document.getElementById('ImgPreview').src;
+    if(imgSrc) {
+        document.getElementById('theFile').classList.remove('d-block');
+        document.getElementById('theFile').classList.add('d-none');
+        document.getElementById('theImg').classList.remove('d-none');
+        document.getElementById('theImg').classList.add('d-block');
+    }
+}
 
 </script>
 

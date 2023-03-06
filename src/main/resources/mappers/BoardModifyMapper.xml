@@ -18,7 +18,14 @@
 
   <update id="modifyUpdate">
     UPDATE BOARD
-    SET uNo=#{uNo},name=#{name},title=#{title},content=#{content},secret=#{secret}
+    SET uno=#{uno},name=#{name},title=#{title},content=#{content},secret=#{secret}
     WHERE BID = #{bid}
   </update>
+
+  <update id="addAttachedUpdate">
+    UPDATE Attached
+    SET fileName=#{fileName}
+    WHERE BID = #{bid}
+  </update>
+
 </mapper>

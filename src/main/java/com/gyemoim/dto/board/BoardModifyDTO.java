@@ -11,13 +11,13 @@ import java.util.Date;
 @ToString
 public class BoardModifyDTO {
     private int bid;
-    private long uNo;
+    private Integer uno;
     private String name;
     private String title;
     private String content;
     private Date writeDate;
     private String secret;
     private MultipartFile uploadFile;
-
+    private String fileName;
 
 }
