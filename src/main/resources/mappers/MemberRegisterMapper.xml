@@ -7,8 +7,8 @@
 
   <!--회원가입 정보 저장-->
   <insert id="registerMember"  >
-    INSERT  INTO Member(uNo,email,password,name,ssn,phone,address)
-    VALUES(uno_mem_seq.nextVal ,#{email},#{password},#{name},#{ssn},#{phone},#{address})
+    INSERT  INTO Member(uNo,email,password,name,ssn,phone,addresscode,address,addressdetail)
+    VALUES(uno_mem_seq.nextVal ,#{email},#{password},#{name},#{ssn},#{phone},#{addresscode},#{address},#{addressdetail})
   </insert>
 
   <!--중복이메일 확인-->
