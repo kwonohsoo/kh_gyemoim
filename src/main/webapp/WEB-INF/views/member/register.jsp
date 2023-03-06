@@ -26,7 +26,7 @@
                 <h5 class="fw-normal">이메일</h5>
                 <div class="flex">
                   <input type="email" id="email" name="email" autocapitalize="off" autocomplete="off"
-                         placeholder="email@naver.com">
+                         placeholder="gyemoim@naver.com">
                   <button type="button" action="/member/checkMember" class="btn btn-primary btn-md px-4 button-request" id="emailCheck"><span>중복 확인</span>
                   </button>
                   <span id="result"></span>
@@ -55,7 +55,7 @@
               <div class="text-start mb-5 passbox">
                 <h5 class="fw-normal">주민등록번호</h5>
                 <input type="text"  id ="ssn" name="ssn" autocapitalize="off" autocomplete="off" placeholder="-빼고 숫자 입력">
-                <em>생년월일은 필수 입력 정보입니다.</em>
+
               </div>
             </div>
 
@@ -78,7 +78,7 @@
                   <input type="text" name="addresscode" class="postcodify_postcode5" placeholder="우편번호 검색">
                   <button type="button" class="btn btn-primary btn-md px-4 button-request" id="postcodify_search_button"><span>검색</span></button>
                 </div>
-                <span class="input_area"><input type="text" name="address" class="postcodify_address" placeholder="우편번호 검색"></span>
+                <span class="input_area"><input type="text" name="address" class="postcodify_address" placeholder="우편주소 검색"></span>
                 <span class="input_area"><input type="text" name="addressdetail" placeholder="상세주소 입력"></span>
               </div>
             </div>
