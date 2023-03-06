@@ -15,7 +15,7 @@
 
 <section class="py-5">
   <div class="container px-5">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-11">
         <div class="title">
           <h1>커뮤니티</h1>
@@ -24,7 +24,8 @@
         <div class="container">
           <table class="table text-center">
             <tr>
-              <td><h2>제목: ${board.getTitle()}</h2></td>
+              <td><h2>제목: ${board.getTitle()}
+              </h2></td>
             </tr>
             <tr>
               <td class="read-detail">
@@ -60,7 +61,7 @@
           </table>
 
           <!--댓글 시작-->
-          <div id="reply" class="card bg-light">
+          <div id="replyArea" class="card bg-light replyArea">
             <div class="card-body">
               <textarea class="form-control" name="comm" id="newReplyComm" cols="30" rows="3"
                         placeholder="댓글을 입력해주세요"></textarea>
@@ -68,21 +69,26 @@
               <input class="form-control" type="hidden" id="newReplyUNo" name="uno" value="${login.getUno()}">
               <input class="form-control" type="hidden" id="newReplyName" name="name" value="${board.getName()}">
 
-              <button type="submit" class="btn btn-primary btn-md px-3 mt-2 me-sm-3" id="replyAddBtn">작성</button>
+              <button type="submit" class="btn btn-primary btn-md px-3 mt-2 me-sm-3 replyAddBtn" id="replyAddBtn">작성</button>
 
-              <table>
+              <table id="reply" class="table mt-3">
                 <c:forEach var="reply" items="${reply}">
                   <tr>
-                    <td class="fw-bold">${reply.getName()}</td>
+                    <td class="replyInfo">
+                    <div class="fw-bold pb-0">${reply.getName()}</div>
+                    <div class="small fst-italic"><fmt:formatDate value="${reply.getRepDate()}" pattern="yyyy-MM-dd"/></div></td>
+                    </td>
+                    </tr>
+                    <tr>
                     <td>
-                      <input class="reply-contents" id="newModifyComm" name="comm" value="${reply.getComm()}"
-                             <c:if test="${reply.uno ne login.uno}">readonly</c:if>>
+                      <input class="reply-contents form-control newModifyComm" id="newModifyComm" name="comm" value="${reply.getComm()}" readonly>
                       <input class="form-control" type="hidden" id="newReplyRno" name="rno" value="${reply.getRno()}">
 
                       <c:choose>
                         <c:when test="${reply.uno eq login.uno}">
-                          <button type="submit" id="replyModifyBtn">수정하기</button>
-                          <button type="submit" id="replyDeleteBtn">삭제하기</button>
+                          <button type="submit" id="fakeReplyModifyBtn" class="fakeReplyModifyBtn btn-primary">수정하기</button>
+                          <button type="submit" id="replyModifyBtn" class="replyModifyBtn btn-primary" hidden>수정하기</button>
+                          <button type="submit" id="replyDeleteBtn" class="replyDeleteBtn btn-danger">삭제하기</button>
                         </c:when>
                       </c:choose>
 
@@ -124,12 +130,15 @@
 <script type="text/javascript">
   $(function () {
     $("#replyAddBtn").on("click", function () {
+        console.log("dfs")
       let repBid = "${board.getBid()}";
       let repUno = "${login.getUno()}";
-      let repName = "${login.getName()}";
 
       let replytextObj = $("#newReplyComm");
       let replytext = replytextObj.val();
+
+      let replyNameObj = $("#newReplyName");
+      let replyName = replyNameObj.val();
 
       $.ajax({
         type: 'post',
@@ -142,13 +151,13 @@
           "bid": repBid,
           "uno": repUno,
           "comm": replytext,
-          "name": repName
+          "name": replyName
         }),
         success: function (result) {
           console.log("result: " + result);
           if (result == 'SUCCESS') {
-            location.reload();
-          }
+                location.reload();
+         }
         },
         error: function () {
           console.log("ajax 통신 실패");
@@ -161,7 +170,7 @@
 
 <!— 댓글수정 —>
 <script type="text/javascript">
-  $(function () {
+$(document).ready(function(){
     $("#replyModifyBtn").on("click", function () {
 
       let repRno = $("#newReplyRno").val();
@@ -239,4 +248,16 @@
     });
   });
 </script>
+
+<!-- 댓글 수정하기 버튼 속성추가 -->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#fakeReplyModifyBtn").on("click", function () {
+        $("#newModifyComm").attr('readonly', false);
+        $("#replyModifyBtn").attr('hidden', false);
+        $("#fakeReplyModifyBtn").attr('hidden', true);
+    });
+  });
+</script>
+
 <%@ include file="../include/footer.jspf" %>

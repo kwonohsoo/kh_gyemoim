@@ -55,10 +55,11 @@ public class BoardModifyServiceImpl implements BoardModifyService{
     public void modifyUpdate(BoardModifyDTO dto) throws Exception {
         /*글 수정하기*/
         boardModifyDAO.modifyUpdate(dto);
+        System.out.println("서비스야!!!!!!!!" + dto);
+        System.out.println("서비스야!!!!!!!! 정신차려!!!!!!" + dto.getBid());
 
         /* 첨부파일 */
         MultipartFile newFile = dto.getUploadFile();
-        String oldFile;
 
         if(!newFile.isEmpty()) {
             UUID uid = UUID.randomUUID();
@@ -66,8 +67,10 @@ public class BoardModifyServiceImpl implements BoardModifyService{
             //savedName은 유니크네임
             newFile.transferTo(new File(uploadPath + filePath + savedName)); //서버에 파일 저장
 
+            // saveName을 modifyDTO에 넣어주기
+            dto.setFileName(savedName);
         /* new 첨부파일 추가 */
-            boardWriteDAO.addAttachedName(savedName);
+            boardModifyDAO.addAttachedUpdate(dto);
         }
 
     }

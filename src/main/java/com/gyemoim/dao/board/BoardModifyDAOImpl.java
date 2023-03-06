@@ -25,10 +25,18 @@ public class BoardModifyDAOImpl implements BoardModifyDAO{
   public AttachedVO attached(int bid) {
     return sqlSession.selectOne("BoardModifyMapper.attached", bid);
   }
+
   /* 정보 업데이트 */
   @Override
   public void modifyUpdate(BoardModifyDTO dto) throws Exception {
-    sqlSession.update(namespace + "BoardModifyMapper.update", dto);
+    sqlSession.update(namespace + "BoardModifyMapper.modifyUpdate", dto);
+  }
+
+  @Override
+  public void addAttachedUpdate(BoardModifyDTO dto) throws Exception {
+    System.out.println("DAO 보드넘버!!!!!!!!!!!!!!!!!" + dto.getBid());
+    System.out.println("DAO 파일이름!!!!!!!!!!!!!!!!!" + dto.getFileName());
+    sqlSession.update(namespace + "BoardModifyMapper.addAttachedUpdate", dto);
   }
 
 }
