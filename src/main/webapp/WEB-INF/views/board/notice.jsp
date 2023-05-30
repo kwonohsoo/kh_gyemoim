@@ -6,7 +6,7 @@
 
 <link href="<c:url value="/resources/dist/css/board/list.css"/>" rel="stylesheet"/>
 
-<section class="py-5">
+<section class="py-5 h-100">
   <div class="container px-5">
     <div class="row justify-content-center">
       <div class="col-11 ">

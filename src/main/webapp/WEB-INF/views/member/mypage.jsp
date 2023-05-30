@@ -102,7 +102,7 @@
                            class="form-control "
                            value="${my.password}"
                            onchange ="isSame()"
-                           placeholder="비밀번호는 6~16자로 입력해 주세요.">
+                           placeholder="비밀번호는 4~12자로 입력해 주세요.">
                   </td>
                 </tr>
 
@@ -273,8 +273,8 @@
  console.log('d');
     var password1 = document.getElementById('password1');
     var password2 = document.getElementById('password2');
-    if (password1.value.length < 7 || password1.value.length > 16) {
-         alert('비밀번호는 영문 ,특수문자를 사용하여 8글자 이상, 16글자 이하만 수정가능합니다.');
+    if (password1.value.length < 4 || password1.value.length > 12) {
+         alert('비밀번호는 대소문자, 숫자를 사용하여 4글자 이상, 12글자 이하만 수정가능합니다.');
         document.getElementById('password1').value=document.getElementById('password2').value='';
         document.getElementById('same').innerHTML='';
     }

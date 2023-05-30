@@ -6,14 +6,14 @@
 
 <body>
 <!-- Page Content-->
-<section class="py-5">
+<section class="py-5 h-100">
   <div class="container px-5 my-5">
     <div class="row gx-5">
-      <div class="col-lg-3">
+      <div class="col-lg-12">
         <div>
-          <div class="col-lg-9">
+          <div class="col-lg-3" style="margin:0 auto">
             <article><!--본문 시작-->
-              <h1 class="fw-bolder mb-1">회원탈퇴</h1>
+              <h1 class="fw-bolder mb-4 text-center">회원탈퇴</h1>
                 <form method="post" id="form" onsubmit="return false;">
                 <input type="hidden"
                         name="password"
@@ -26,9 +26,10 @@
                           id="password2"
                           class="form-control "
                           value=""
+                          placeholder="비밀번호를 입력해주세요"
                           >
 
-                    <div class="btnArea join-footer py-5">
+                    <div class="btnArea join-footer py-5 text-center">
                       <button type="submit" onclick="isSame()" class="btn btn-primary btn-lg px-4 me-sm-3">탈퇴하기</button>
                       <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"
                       onclick="location.href='<%=request.getContextPath()%>/'">메인화면</button>

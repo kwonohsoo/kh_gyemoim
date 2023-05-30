@@ -39,7 +39,7 @@
                                         </dd>
                                     </dl>
                                     <dl>
-                                        <dt>생년월일</dt>
+                                        <dt>주민등록번호</dt>
                                         <dd>
                                             <input
                                                     id="ssn"

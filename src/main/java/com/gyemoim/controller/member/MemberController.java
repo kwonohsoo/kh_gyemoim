@@ -40,18 +40,20 @@ public class MemberController {
 
     MemberVO vo = service.login(dto);
 
-    if (vo == null) return;
+    if (vo == null) return; // 로그인 실패
     model.addAttribute("memberVO", vo);
 
     System.out.println(vo.toString());
     System.out.println("쿠키 사용 중이니? = " + dto.isUseCookie());
 
-    if (dto.isUseCookie()) {
-      int amount = 60 * 60 * 24 * 7;
-      Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
+//    세션 추가 되는 부분   //
+    if (dto.isUseCookie()) {  // dto 클래스 안에 useCookie 항목에 폼에서 넘어온 쿠키사용 여부(true/ false)가 들어있다. // 체크가 되어 있다면
+      int amount = 60 * 60 * 24 * 7;  // 단위 (초) : (60초 * 60초) = 3600초 (1시간) * 24 = 24시간 * 7 = [7일]
+      Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount)); // currentTimeMills()가 1/1000초 단위임으로 1000곱해서 더해야함
 
       System.out.println("loginPost에서 service의 keepLogin수행.");
 
+      // 현재 세션 email, id, 유효시간을 MAP에 저장한다.
       Map<String, Object> paramMap = new HashMap<>();
       paramMap.put("email", vo.getEmail());
       paramMap.put("sessionId", session.getId());
@@ -78,13 +80,15 @@ public class MemberController {
     if (obj != null) {
       MemberVO vo = (MemberVO) obj;
 
-      session.removeAttribute("login");
-      session.invalidate();
+      session.removeAttribute("login"); // 세션 지움
+      session.invalidate(); // 세션 지움
 
       System.out.println("로그아웃 *세션* 지움");
 
-      Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+      Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");  // WebUtils 클래스 : Session에 담겨 있는 객체들을 짧은 코드로 넣고 빼고 할 수 있고
+                                                                              // 세션이나 쿠키 객체를 받아올 수 있다.
 
+      //사용자가 자동로그인을 선택했었다면, LoginInterceptor 인터셉터에서 설정했던 loginCookie값을 초기화한다.
       if (loginCookie != null) {
         loginCookie.setPath("/");
         loginCookie.setMaxAge(0);
@@ -113,9 +117,9 @@ public class MemberController {
   // email 찾기 실행
   @RequestMapping(value = "/findResultEmail")
   public String findResultEmail(HttpServletRequest request, Model model,
-                                @RequestParam(required = true, value = "name") String name,
-                                @RequestParam(required = true, value = "phone") String phone,
-                                @RequestParam(required = true, value = "ssn") String ssn,
+                                @RequestParam(required = true, value = "name") String name, // 이름
+                                @RequestParam(required = true, value = "phone") String phone, // 핸드폰 번호
+                                @RequestParam(required = true, value = "ssn") String ssn, // 주민등록번호
                                 MemberVO memberVO) {
 
     try {
